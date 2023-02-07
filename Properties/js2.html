@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>button_magic</title>
+</head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@400;500&family=Varela+Round&display=swap');
+    </style>
+<style>
+    *
+    {
+        font-family: 'Poppins', sans-serif;
+        margin:0;
+    }
+    .parent
+    {
+        height:300px;
+        width:20%;
+        background-color: cornflowerblue;
+        border:none;
+        border-radius: 15px;
+        position:absolute;
+        top:100px;
+        left:40%;
+        display: flex;
+        flex-direction: column;
+    }
+    .nav
+    {
+        height:50px;
+        width:100%;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    .but
+    {
+        height: 100%;
+        width: 100%;
+        background-color:rgb(1, 54, 153);
+        border:none;
+        color: white;
+    }
+    .but:hover{
+        background-color: rgb(87, 87, 128);
+    }
+    #butt1
+    {
+        border-top-left-radius: 15px;
+    }
+    #butt2
+    {
+        border-top-right-radius: 15px;
+    }
+    .login
+    {
+        z-index: -1;
+        height: 250px;
+        width:20%;
+        background-color:cornflowerblue;
+        border:none;
+        border-radius: 15px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        position: absolute;
+        left:40%;
+        top:150px;
+    }
+    .signup
+    {
+        z-index: -1;
+        height: 250px;
+        width:20%;
+        background-color:cornflowerblue;
+        border:none;
+        border-radius: 15px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        position: absolute;
+        left:40%;
+        top:150px;
+    }
+    .para
+    {
+        font-size: 1.5rem;
+        text-align: center;
+        position: relative;
+        top:60px;
+        color: rgb(72, 71, 71);
+    }
+    .form1
+    {
+        height:20px;
+        width:70%;
+        text-decoration: none;
+        position:relative;
+        top:20px;
+        left:15%;
+        margin-bottom: 25px;
+        border:none;
+        background-color: cornflowerblue;
+        border-bottom: 2px solid rgb(81, 81, 81);
+    }
+    .form1:focus
+    {
+        border:none;
+        border-bottom: 2px solid rgb(81, 81, 81);
+        outline:none;
+    }
+    ::placeholder
+    {
+        color: black;
+    }
+    .sub
+    {
+        height:35px;
+        width:32%;
+        background-color: darkblue;
+        border:none;
+        border-radius: 20px;
+        color:white;
+    }
+    .sub:hover
+    {
+        background-color: rgb(42, 42, 157);
+    }
+    #logsub
+    {
+        position:relative;
+        top:40px;
+        left:33%;
+    }
+    #signsub
+    {
+        position:relative;
+        top:30px;
+        left:33%;
+    }
+</style>
+<body>
+    <div class="login"  id="log">
+        <form id="authentication">
+            <input name="username" class="form1" id="email1" type="text" placeholder="Email">
+            <input name="password" class="form1" id="pass1" type="password" placeholder="Password">
+            <input class="sub" id="logsub" type="submit" value="Login">
+        </form>
+    </div>
+    <div class="signup" id="sign">
+        <form id="authentication">
+            <input name="username" class="form1" id="name2" type="text" placeholder="Name">
+            <input name="username" class="form1" id="email2" type="text" placeholder="Email">
+            <input name="password" class="form1" id="pass2" type="password" placeholder="Password">
+            <input class="sub" id="signsub" type="submit" value="Signup">
+        </form>
+    </div>
+    <div class="parent">
+        <div class="nav">
+            <button class="but" id="butt1">Login</button>
+            <button class="but" id="butt2">Signup</button>
+        </div>
+    </div>
+    
+    <script>
+        let x=document.getElementById('butt1')
+        let y=document.getElementById('butt2')
+        let a=document.getElementById('log')
+        let b=document.getElementById('sign')
+
+        window.onload=function()
+        {
+            y.click()
+        }
+
+        x.addEventListener('click', function()
+        {
+            a.style.zIndex=2
+            b.style.zIndex=-1
+            y.style.background="rgb(1, 54, 153)"
+            x.style.background="cornflowerblue"
+            y.style.borderBottomLeftRadius="10px"
+        })
+        y.addEventListener('click', function()
+        {
+            b.style.zIndex=2
+            a.style.zIndex=-1
+            y.style.background="cornflowerblue"
+            x.style.background="rgb(1, 54, 153)"
+            x.style.borderBottomRightRadius="10px"
+        })
+    </script>
+</body>
+</html>
