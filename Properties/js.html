@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+</head>
+<style>
+    *
+    {
+        font-family:Verdana, Geneva, Tahoma, sans-serif;
+    }
+    .head
+    {
+        position: absolute;
+        left:37.5%;
+        top:6%;
+    }
+    #but1
+    {
+        position: absolute;
+        left:40%;
+        top:20%;
+        height:60px;
+        width:120px;
+        border: none;
+        border-radius: 12px;
+        background-color:darkblue;
+        color:white;
+        font-size:1.1rem;
+        font-weight: 500;
+    }
+    #but1:hover
+    {
+        background-color: lightseagreen;
+        color:rgb(60, 60, 60);
+        font-size:1.1rem;
+        font-weight: 550;
+    }
+</style>
+<body>
+    <h1 class="head">Hello There !</h1>
+    <button class="but" id="but1" >Click Here</button>
+    <!-- <button class="but" id="but2">Click Me</button> -->
+    <script>
+        var num1=63
+        var num2=6
+        var char1='z'
+        var obj={
+            aditya : 69,
+            dev:6969
+        }
+        var a=true
+        var arr=[1, 2, "dev", 'a', 69.69]
+
+        function average(a, b)
+        {
+            return (a+b)/2
+        }
+
+        // alert(average(10, 5))
+        // for(var i=0; i<7; i++)
+        // {
+        //     console.log("value of i is ", i+1)
+        // }
+        var i=0
+        while(i<7)
+        {
+            if(i==3)
+                break
+            console.log("i is ", i+1)
+            i++
+        }
+        // let list=["aditya", 69, 'z']
+        // console.log(list.length)
+
+        // list.push("dev")
+        // console.log(list)
+
+        // list.pop()
+        // console.log(list)
+
+        // list.shift()
+        // console.log(list)
+
+        // list.unshift("adi")
+        // console.log(list)
+
+        // console.log(list.toString())
+        // console.log(list.sort())
+
+
+
+        // let str="hey there aditya this side"
+        // console.log(str.slice(0, 2))
+        //(0, 2) means from 0 to 1   * excluding 2
+ 
+        // str = str.replace("aditya", "dev");
+        //just replaces the first occurance
+        // console.log(str)
+
+        // let ele=document.getElementsByClassName('but')
+        // ele[0].style.background="green";
+        // ele[1].style.background="yellow"
+        
+        
+
+        // var date=new Date()
+        // console.log(date)
+        // console.log(date.getDay())
+        // console.log(date.getMonth())
+        // console.log(date.getFullYear())
+        // console.log(date.getHours())
+
+        // console.log(arr)
+        // console.log(true && false)
+        // console.log(true || false)
+        // console.log(!true)
+        // console.log(num1==num2)
+
+        // document.write("this is written", num1+num2)   
+        // console.warn("khatra !", num1+num2)
+        // console.error("khatam tata byy byy gya !", num1+num2)
+
+        let variable=document.getElementById('but1')
+        var count=0
+
+        variable.addEventListener('click',  function(){
+            count++
+            if(count==1)
+                alert('mat daba bhosdike')
+            else if(count==2)
+                alert('bas kar bhai')
+            else if(count>2)
+                alert('tere ko dar nhi lagta madharchod')
+        })
+        // variable.addEventListener('mouseover', function()
+        // {
+        //     alert('kya mouse ghooma rha hai')
+        // })
+        // variable.addEventListener('mouseout', function()
+        // {
+        //     alert('kya mouse hata rha hai')
+        // })
+        function display()
+        {
+            alert("timeout")
+        }
+        // setTimeout(display, 5000);
+        // clr = setInterval(display, 5000);
+        // clearInterval()
+        // clearTimeout()
+
+        
+    </script>
+</body>
+</html>
