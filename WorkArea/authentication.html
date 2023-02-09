@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Authentication</title>
+</head>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Poppins:wght@400;500&family=Varela+Round&display=swap');
+</style>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400&family=Montserrat:wght@200&family=Poppins:wght@400;500&family=Raleway:wght@300&family=Varela+Round&display=swap');
+  </style>
+<style>
+  *
+  {
+    margin: 0;
+  }
+  .back
+  {
+    width:100%;
+  }
+  .background
+  {
+    height:100%;
+    width:100%;
+    background-color: rgba(66, 66, 139, 0.307); 
+    position:absolute;
+    top:0;
+    left:0;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+  }
+  .log_tab
+  {
+    height:53%;
+    width:30%;
+    position: absolute;
+    top:15%;
+    left:32.5%;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  .nav
+  {
+    margin-top: 2%;
+    height:13%;
+    width:100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    color:rgb(50, 50, 50);
+  }
+  .auth
+  {
+    font-family: 'Varela Round', sans-serif;
+    margin-right:-5%;
+    margin-left: 15%;
+    padding:2px; 
+    border:none;
+    background-color: white;
+    font-size: 1.2rem;
+    padding: 2px;
+    margin-top:2%;
+    color: rgb(60, 60, 60);
+    font-weight: 500;
+  }
+  /* .auth:hover
+  {
+    border:none;
+    border-bottom:solid 3px grey;
+  }
+  .auth:focus
+  {
+    border:none;
+    border-bottom:solid 3px orangered;
+  } */
+  .form1
+  {
+    height:47.85%;
+    width:30%;
+    position: absolute;
+    left: 32.5%;
+    top:22.15%;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+  }
+  .but
+  {
+    font-family: 'Poppins', sans-serif;
+    height:30px;
+    width:70%;
+    position: relative;
+    top:30px;
+    left:15%;
+    border: none;
+    border-bottom: solid 2px rgb(169, 169, 169);
+    padding-left: 5px;
+    margin-bottom: 18px;
+  }
+  .but:hover
+  {
+    border:none;
+    border-bottom: solid 2px orangered;
+  }
+  ::placeholder:hover
+  {
+    color: orangered;
+  }
+  .but:focus
+  {
+    outline: none;
+    border:none;
+    border-bottom:solid 2px rgb(99, 99, 99);
+  }
+  .sub
+  {
+    font-family: 'Poppins', sans-serif;
+    height:35px;
+    width:25%;
+    position: absolute;
+    left:37%;
+    top:43%;
+    border-radius: 20px;
+    border:none;
+    background-image: linear-gradient(to right, rgb(216, 58, 0), rgb(251, 155, 1) );
+    color: white;
+  }
+  .sub:hover
+  {
+    transition-timing-function: linear;
+    background-image: linear-gradient(to left, rgb(216, 58, 0), rgb(251, 155, 1) );
+  }
+  #signsub
+  {
+    position: absolute;
+    top:71%;
+  }
+  #remember
+  {
+    position: absolute;
+    top:62.5%;
+    left:24%;
+  }
+  #tc
+  {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-decoration: none;
+    position: absolute;
+    top:61.5%;
+    left:29%;
+    font-size: 0.82rem;
+    color: rgb(147, 147, 147);
+  }
+  .ruler
+  {
+    width:30.5%;
+    position: absolute;
+    top:62.5%;
+    left:15%;
+    border: solid 0.7px rgb(228, 228, 228);
+  }
+  .or
+  {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    top:59%;
+    left:48%;
+    color: rgb(66, 66, 66);
+    font-size: 0.9rem;
+  }
+  #r2
+  {
+    width: 32.3%;
+    left:54%;
+  }
+  .google
+  {
+    height:40px;
+    width:60%;
+    position: absolute;
+    top:73%;
+    left:20%;
+    border:solid 1.5px rgb(126, 167, 242);
+    background-color: transparent;
+    border-radius: 3px;
+    color: rgb(91, 140, 231);
+    font-size: 0.95rem;
+  }
+  .google:hover
+  {
+    background-color: rgb(49, 113, 232);
+    border:solid 1.5px rgb(49, 113, 232);
+    color:white;
+  }
+
+</style>  
+<body>
+  <div class="form1" id="f1">
+    <form action="authentication" method="post">
+      <input name="name" class="but" id="uname" type="text" placeholder="Username">
+      <input name="username" class="but" id="em1" type="text" placeholder="Email ID">
+      <input name="password" class="but" id="pass1" type="password" placeholder="Password">
+      <input class="sub" id="signsub" type="submit" value="Signup">
+      <input type="checkbox" id="remember" name="remember_me" value="t&c">
+      <a id="tc" href="">I agree with terms & conditions</a>
+    </form>
+  </div>
+  <div class="form1" id="f2">
+    <form action="authentication" method="post">
+      <input name="username" class="but" id="em2" type="text" placeholder="Email ID">
+      <input name="password" class="but" id="pass2" type="password" placeholder="Password">
+      <input class="sub" id="logsub" type="submit" value="Login">
+      <hr class="ruler" id="r1">
+      <p class="or">Or</p>
+      <hr class="ruler" id="r2">
+      <button class="google">Continue with Google</button>
+    </form>
+  </div>
+  <img class="back" src="./back_opac.png">
+  <div class="background"></div>
+  <div class="log_tab">
+    <div class="nav">
+      <button class="auth one" id="logid">LOG IN</button>
+      <button class="auth two" id="subid">SIGN UP</button>
+    </div>
+  </div>
+</body>
+<script>
+  
+  let a=document.getElementById('logid')
+  let b=document.getElementById('subid');
+  let x=document.getElementById('f1')
+  let y=document.getElementById('f2');
+
+  window.onload=function()
+  {
+    b.click()
+    b.style.borderBottom="solid 3px orangered"
+  }
+  a.addEventListener('click', function()
+  {
+    y.style.zIndex=2
+    x.style.zIndex=-1
+    b.style.borderBottom="none"
+    a.style.borderBottom="solid 3px orangered"
+  })
+  b.addEventListener('click', function()
+  {
+    x.style.zIndex=2
+    y.style.zIndex=-1
+    a.style.borderBottom="none"
+    b.style.borderBottom="solid 3px orangered"
+  })
+</script>
+</html>
