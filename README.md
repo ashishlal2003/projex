@@ -51,7 +51,7 @@ We welcome contributions to ProjEx. To contribute, please fork the repository, m
 
 ## Authors
 
-Ashish Lal
-Ashish Jadhawar
-Amballa Venkata Sriram
-Aditya Dev
+ - Ashish Lal
+ - Ashish Jadhawar
+ - Amballa Venkata Sriram
+ - Aditya Dev
