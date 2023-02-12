@@ -6,9 +6,14 @@ const authRoutes = require('./authentication/routes/routes');
 //Set up the express app
 const app = express();
 
+// Set up EJS as the template engine
+app.set('view engine', 'ejs');
+
 //Middleware
 app.use(express.json());
 app.use(express.static('public'));
+app.use(express.static('public'));
+
 
 
 app.use((req,res,next)=>{

@@ -7,4 +7,4 @@ Make sure you are in the ```backend``` folder.
 
 2. ```npm i express mongoose```
 
-3. ```npm i dotenv```
+3. ```npm i dotenv ejs```
