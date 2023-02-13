@@ -1,6 +1,6 @@
 const model = require('../model/model');
 const mongoose = require('mongoose');
-
+const bodyParser = require('body-parser');
 //GET the auth page
 const getAuth = async (req,res) => {
     res.render('authentication');
@@ -11,17 +11,17 @@ const getAuth = async (req,res) => {
 // }
 
 const signUp = async(req,res)=>{
-    const db = client.db("test");
-    const collection = db.collection("model");
-    const { name, username, password } = req.body;
+    
+    const {name,username,password} = req.body;
   
-    collection.insertOne({ name, username, password }, (err, result) => {
-      if (err) {
-        return res.send({ error: 'Failed to sign up' });
-      }
-  
-      res.send({ message: 'Signed up successfully' });
-    });
+    try{
+      const user = await model.create({name, username, password});
+    }
+    catch(err){
+      res.status(400).json({err:err.message});
+    }
+      res.redirect('/');
+    
 }
 
 module.exports = {

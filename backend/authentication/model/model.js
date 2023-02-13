@@ -2,11 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSignUpSchema = new Schema({
-    username:{
+    name:{
         type: String,
         required: true
     },
-    email:{
+    username:{
         type: String,
         required: true
     },

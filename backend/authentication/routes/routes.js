@@ -15,7 +15,7 @@ router.get('/authentication',getAuth);
 // router.post('/authentication',postAuth);
 
 //POST signup
-router.post('/signup',signUp);
+router.post('/authentication',signUp);
   
 
 module.exports = router;

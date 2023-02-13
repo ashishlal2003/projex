@@ -2,10 +2,12 @@ const express = require('express');
 require('dotenv').config();
 const mongoose = require('mongoose');
 const authRoutes = require('./authentication/routes/routes');
+const bodyParser = require('body-parser');
 
 //Set up the express app
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
 // Set up EJS as the template engine
 app.set('view engine', 'ejs');
 
