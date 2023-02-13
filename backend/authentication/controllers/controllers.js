@@ -24,6 +24,8 @@ const signUp = async(req,res)=>{
     
 }
 
+
+
 module.exports = {
     getAuth,
     signUp
