@@ -12,13 +12,10 @@ const router = express.Router();
 //GET the Authentication page
 router.get('/authentication',getAuth);
 
-// //POST the Authentication page
-// router.post('/authentication',postAuth);
-
-//POST signup
+//POST signup from Auth
 router.post('/signup',signUp);
 
-//POST login
+//POST login from Auth
 router.post('/login',logIn);
   
 

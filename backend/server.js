@@ -27,8 +27,8 @@ app.use((req,res,next)=>{
 //Routes
 app.use(authRoutes);
 app.use(landRoutes);
-//Connecting to MongoDB
 
+//Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{
         //listen for requests
