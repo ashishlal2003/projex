@@ -22,11 +22,14 @@ const signUp = async(req,res)=>{
     }
       res.redirect('/');
     
-}
+};
 
-
+const logIn = async(req,res)=>{
+    res.json({msg:"ok"});
+};
 
 module.exports = {
     getAuth,
-    signUp
+    signUp,
+    logIn
 };
