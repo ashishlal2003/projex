@@ -1,8 +1,8 @@
 const express = require('express');
-const { route } = require('../../authentication/routes/routes');
+const { route } = require('../routes/authRoutes');
 const{
     getLanding
-} = require('../controllers/controllers');
+} = require('../controllers/landingControllers');
 
 const router = express.Router();
 

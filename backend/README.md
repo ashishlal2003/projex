@@ -5,6 +5,4 @@ Make sure you are in the ```backend``` folder.
 
 1. ```npm init -y```
 
-2. ```npm i express mongoose```
-
-3. ```npm i dotenv ejs```
+2. ```npm i express mongoose dotenv ejs bcrypt```

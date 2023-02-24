@@ -5,7 +5,7 @@ const {
     logIn
     // postAuth
 
-} = require('../controllers/controllers');
+} = require('../controllers/authControllers');
 
 const router = express.Router();
 

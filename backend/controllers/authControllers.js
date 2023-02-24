@@ -1,4 +1,4 @@
-const model = require('../model/model');
+const model = require('../models/authModel');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');

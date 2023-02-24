@@ -1,8 +1,9 @@
 const express = require('express');
 require('dotenv').config();
 const mongoose = require('mongoose');
-const authRoutes = require('./authentication/routes/routes');
-const landRoutes = require('./landing/routes/routes');
+const authRoutes = require('./routes/authRoutes');
+const landRoutes = require('./routes/landingRoutes');
+const resetRoutes = require('./routes/resetRoutes');
 const bodyParser = require('body-parser');
 
 //Set up the express app
@@ -27,6 +28,7 @@ app.use((req,res,next)=>{
 //Routes
 app.use(authRoutes);
 app.use(landRoutes);
+app.use(resetRoutes);
 
 //Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI)
