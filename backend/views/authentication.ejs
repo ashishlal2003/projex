@@ -20,15 +20,28 @@
       <input name="name" class="but" id="uname" type="text" placeholder="Username">
       <input name="username" class="but" id="em1" type="email" placeholder="Email ID">
       <input name="password" class="but" id="pass1" type="password" placeholder="Password">
-      <input class="sub" id="signsub" type="submit" value="Signup">
+      <input id="confirm_pass" class="but" type="password" name="confirm_pass" placeholder="Confirm Password" required onkeyup="validate_password()">
+      <input class="sub" id="signsub" type="submit" value="Signup" onclick="wrong_pass_alert()">
       <input type="checkbox" id="remember" name="remember_me" value="t&c">
       <a id="tc" href="">I agree with terms & conditions</a>
     </form>
+
+    <span id="wrong_pass_alert"></span>
+        <!-- <div class="buttons">
+            <button id="create"
+                    class="submit_btn"
+                    onclick="wrong_pass_alert()">
+                Submit
+            </button>
+        </div> -->
   </div>
   <div class="form1" id="f2">
     <form action="/login" method="POST">
       <input name="username" class="but" id="em2" type="email" placeholder="Email ID">
       <input name="password" class="but" id="pass2" type="password" placeholder="Password">
+      
+
+
       <input class="sub" id="logsub" type="submit" value="Login">
       <hr class="ruler" id="r1">
       <p class="or">Or</p>
@@ -73,6 +86,34 @@
     a.style.borderBottom="none"
     b.style.borderBottom="solid 3px orangered"
   })
+
+  function validate_password() {
+ 
+ var pass = document.getElementById('pass1').value;
+ var confirm_pass = document.getElementById('confirm_pass').value;
+ if (pass != confirm_pass) {
+     document.getElementById('wrong_pass_alert').style.color = 'red';
+     document.getElementById('wrong_pass_alert').innerHTML
+       = '☒ Use same password';
+     document.getElementById('signsub').disabled = true;
+     document.getElementById('signsub').style.opacity = (0.4);
+ } else {
+    //  document.getElementById('wrong_pass_alert').style.color = 'green';
+    //  document.getElementById('wrong_pass_alert').innerHTML =
+    //      '🗹 Password Matched';
+     document.getElementById('signsub').disabled = false;
+     document.getElementById('signsub').style.opacity = (1);
+ }
+}
+
+function wrong_pass_alert() {
+            if (document.getElementById('pass').value != "" &&
+                document.getElementById('confirm_pass').value != "") {
+                alert("Your response is submitted");
+            } else {
+                alert("Please fill all the fields");
+            }
+        } 
 </script>
 
 </html>

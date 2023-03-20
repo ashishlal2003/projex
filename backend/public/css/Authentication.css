@@ -122,12 +122,12 @@ background-image: linear-gradient(to left, rgb(216, 58, 0), rgb(251, 155, 1) );
 #signsub
 {
 position: absolute;
-top:71%;
+top:77%;
 }
 #remember
 {
 position: absolute;
-top:62.5%;
+top:69.5%;
 left:24%;
 }
 #tc
@@ -135,7 +135,7 @@ left:24%;
 font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 text-decoration: none;
 position: absolute;
-top:61.5%;
+top:68.5%;
 left:29%;
 font-size: 0.82rem;
 color: rgb(147, 147, 147);
@@ -190,4 +190,9 @@ top:34%;
 right:14%;
 color: rgb(159, 159, 159);
 font-size: 0.8rem;
+}
+
+#confirm_pass{
+    position: absolute;
+    top: 54%;
 }
