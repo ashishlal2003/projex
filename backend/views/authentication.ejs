@@ -22,8 +22,9 @@
       <input name="password" class="but" id="pass1" type="password" placeholder="Password">
       <input id="confirm_pass" class="but" type="password" name="confirm_pass" placeholder="Confirm Password" required onkeyup="validate_password()">
       <input class="sub" id="signsub" type="submit" value="Signup" onclick="wrong_pass_alert()">
-      <input type="checkbox" id="remember" name="remember_me" value="t&c">
+      <input type="checkbox" id="remember" name="remember_me" value="t&c" required>
       <a id="tc" href="">I agree with terms & conditions</a>
+      <p id="password_not_match">*password not match</p>
     </form>
 
     <span id="wrong_pass_alert"></span>
@@ -66,11 +67,13 @@
   let b=document.getElementById('subid');
   let x=document.getElementById('f1')
   let y=document.getElementById('f2');
+  let pass_missmatch=document.getElementById('password_not_match');
 
   window.onload=function()
   {
     b.click()
     b.style.borderBottom="solid 3px orangered"
+    pass_missmatch.style.display="none"
   }
   a.addEventListener('click', function()
   {
@@ -95,12 +98,14 @@
     //  document.getElementById('wrong_pass_alert').style.color = 'red';
     //  document.getElementById('wrong_pass_alert').innerHTML
     //    = '☒ Use same password';
+     pass_missmatch.style.display="inline"
      document.getElementById('signsub').disabled = true;
      document.getElementById('signsub').style.opacity = (0.4);
  } else {
     //  document.getElementById('wrong_pass_alert').style.color = 'green';
     //  document.getElementById('wrong_pass_alert').innerHTML =
     //      '🗹 Password Matched';
+    pass_missmatch.style.display="none"
      document.getElementById('signsub').disabled = false;
      document.getElementById('signsub').style.opacity = (1);
  }
