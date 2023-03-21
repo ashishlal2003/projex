@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>projects</title>
+</head>
+<style>
+    *
+    {
+        margin:0;
+    }
+    .nav
+    {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height:7%;
+        width:100%;
+        background-color: orangered;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        position: absolute;
+        top:0;
+        font-size: 1.6rem;
+    }
+    .projex
+    {
+        position: absolute;
+        left:20px;
+    }
+    .proname
+    {
+        height:40px;
+        width:15%;
+        position:absolute;
+        top:100px;
+        left:39%;
+        border:solid 2px orange ;
+        font-size: 1.1rem;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        padding-left: 15px;
+    }
+    .proname::placeholder
+    {
+        color: rgb(161, 161, 161);
+    }
+    .proname:focus
+    {
+        outline: none;
+        border:solid 2px orange;
+    }
+    .create
+    {
+        height:45.5px;
+        width:7%;
+        position: absolute;
+        top:100px;
+        left:54%;
+        border:solid 2px orange;
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        background-color: orange;
+        color: white;
+        font-size: 1.1rem;
+    }
+    .create:hover
+    {
+        background-color: rgb(254, 180, 42);
+        border:solid 2px rgb(254, 180, 42);
+        cursor: pointer;
+    }
+    .left
+    {
+        height: 100%;
+        width: 16.5%;
+        border-right: solid 2px rgb(239, 239, 239);
+        position: absolute;
+        top:0;
+        background-color: rgb(245, 245, 245);
+    }
+    #user
+    {
+        height:30px;
+        position: absolute;
+        top:10px;
+        left:8px;  
+    }
+    .username
+    {
+        color: rgb(78, 78, 78);
+        font-size: 1.2rem;
+        position: relative;
+        left:45px
+    }
+    .email
+    {
+        font-size: 0.9rem;
+        color: grey;
+        position: relative;
+        left:45px;
+    }
+    .userdiv
+    {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height:8%;
+        width: 100%;
+        position: absolute;
+        top:10px;
+    }
+    .icon
+    {
+        opacity: 0.4;
+        height: 21px;
+        position: absolute;
+        left:15px;
+        top:4px;
+    }
+    #viewprofile
+    {
+        height:30px;
+        width: 96%;
+        border:none;
+        position: absolute;
+        top:14%;
+        left:2%;
+        border-radius: 5px;
+        background-color: transparent;
+        font-size: 0.9rem;
+        color: rgb(117, 117, 117);
+        text-align: start;
+        padding-left: 50px;
+    }
+    #editprofile
+    {
+        height:30px;
+        width: 96%;
+        border:none;
+        position: absolute;
+        top:19%;
+        left:2%;
+        border-radius: 5px;
+        background-color: transparent;
+        font-size: 0.9rem;
+        color: rgb(117, 117, 117);
+        text-align: start;
+        padding-left: 50px;
+    }
+    #projects
+    {
+        height:30px;
+        width: 96%;
+        border:none;
+        position: absolute;
+        top:24%;
+        left:2%;
+        border-radius: 5px;
+        background-color: transparent;
+        font-size: 0.9rem;
+        color: rgb(117, 117, 117);
+        text-align: start;
+        padding-left: 50px;
+    }
+    #bookmarks
+    {
+        height:30px;
+        width: 96%;
+        border:none;
+        position: absolute;
+        top:29%;
+        left:2%;
+        border-radius: 5px;
+        background-color: transparent;
+        font-size: 0.9rem;
+        color: rgb(117, 117, 117);
+        text-align: start;
+        padding-left: 50px;
+    }
+    #logout
+    {
+        height:40px;
+        width: 100.5%;
+        border:none;
+        border-bottom: solid 2px rgb(211, 211, 211);
+        position: absolute;
+        bottom:0;
+        background-color: orange;
+        font-size: 1rem;
+        color: white;
+    }
+    #viewprofile:hover, #editprofile:hover, #projects:hover, #bookmarks:hover
+    {
+        background-color: rgb(226, 225, 225);
+        cursor: pointer;
+    }
+    #viewprofile:focus, #editprofile:focus, #projects:focus, #bookmarks:focus, #projects:active
+    {
+        background-color: rgb(200, 200, 200);
+        cursor: pointer;
+    }
+    .dialogue
+    {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        height: 43px;
+        width:140px;
+        background-color: rgba(255, 174, 0, 0.719);
+        position: absolute;
+        left: 135px;
+        top:227px;
+        border-radius: 10px;
+        border-top-left-radius: 0;
+        padding: 5px;
+        font-size: 0.83rem;
+        text-align: center;
+        color: white;
+    }
+</style>
+<body>
+    <div class="left">
+        <div class="userdiv">
+            <img id="user" src="./user.png" alt="">
+            <p class="username" id="username">Aditya Dev</p>
+            <p class="email" id="email">iamadityadevpro@gmail.com</p>
+        </div>
+        <button id="viewprofile"><img class="icon" id="view" src="./view.png">View Profile</button>
+        <button id="editprofile"><img class="icon" id="edit" src="./edit.png">Edit Profile</button>
+        <button id="projects"><img class="icon" id="procreate" src="./add.png">Projects</button>
+        <button id="bookmarks"><img class="icon" id="bookmar" src="./bookmark.png">Bookmarks</button>
+        <!-- <button id="logout">Log Out</button> -->
+    </div>
+    <div class="dialogue" id="diag">
+        <p class="bookmark_diag">You can view your bookmarked projects</p>
+    </div>
+    <input type="text" class="proname" id="proname" placeholder="Project name">
+    <button class="create">Create</button>
+
+    <script>
+        let projects=document.getElementById('projects')
+        let bookmarks=document.getElementById('bookmarks')
+        let diag=document.getElementById('diag')
+
+        window.onload=function()
+        {
+            diag.style.display="none"
+        }
+
+        bookmarks.addEventListener("mouseover",
+        function()
+        {
+            diag.style.display="inline"
+        })
+        bookmarks.addEventListener("mouseout",
+        function()
+        {
+            diag.style.display="none"
+        })
+        bookmarks.addEventListener("click",
+        function()
+        {
+            diag.style.display="none"
+        })
+    </script>
+</body>
+</html>

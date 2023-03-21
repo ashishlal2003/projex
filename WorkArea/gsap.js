@@ -1,0 +1,1 @@
+gsap.to('.heading', {duration:6, opacity:1})
