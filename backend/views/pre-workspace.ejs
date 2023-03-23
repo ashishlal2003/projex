@@ -504,32 +504,59 @@
     #container
     {
         height:65%;
-        width:70%;
+        width:75%;
         position: absolute;
         /* background-color: red; */
         top:35%;
-        left:24%;
+        left:23%;
         display: flex;
         flex-wrap: wrap;
     }
     .projectdiv
     {
         height:175px;
-        width: 180px;
-        border: 2px solid orange;
-        border-radius: 10px;
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
+        width: 280px;
+        border: 1.7px solid rgb(185, 185, 185);
+        border-radius: 5px;
         margin-left: 5%;
         display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
     }
     .projectnamediv
     {
+        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         height: 40px;
         width:100%;
-        background-color: orange;
+        background-color: rgb(220, 220, 220);
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
+        vertical-align:text-bottom;
         position: relative;
-        top: 135px;
+        top: 80px;
+    }
+    .projectdiv:hover
+    {
+        border: 1.7px solid rgb(146, 146, 146);
+    }
+    .projectnametext
+    {
+        position: absolute;
+        top:6px;
+        left: 15px;
+        font-size: 1.2rem;
+        color: rgb(102, 102, 102);
+        /* background-color: red; */
+    }
+    .bookmarkproject
+    {
+        opacity: 0.7;
+        height:25px;
+        position: relative;
+        right:-120px;
+        top:-85px;
+        cursor: pointer;
     }
 </style>
 <body>
@@ -542,7 +569,7 @@
         <button id="viewprofile"><img class="icon" id="view" src="./view.png">View Profile</button>
         <button id="editprofile"><img class="icon" id="edit" src="./edit.png">Edit Profile</button>
         <button id="projects"><img class="icon" id="procreate" src="./add.png">Projects</button>
-        <button id="bookmarks"><img class="icon" id="bookmar" src="./bookmark.png">Bookmarks</button>
+        <button id="bookmarks"><img class="icon" id="bookmar" src="./bookmarkleft.png">Bookmarks</button>
         <!-- <button id="logout">Log Out</button> -->
     </div>
     <div class="dialogue" id="diag">
@@ -686,6 +713,26 @@
             const projectnamediv=document.createElement("div")
             projectnamediv.classList.add("projectnamediv")
             projectdiv.appendChild(projectnamediv) 
+
+            const projectnametext=document.createElement("span")
+            projectnametext.classList.add("projectnametext")
+            projectnamediv.appendChild(projectnametext) 
+
+            const bookmarkproject=document.createElement("img")
+            bookmarkproject.classList.add("bookmarkproject")
+            projectdiv.appendChild(bookmarkproject) 
+
+            bookmarkproject.src="./bookmark.png"
+            let naam=document.getElementById('proname').value
+            projectnametext.innerHTML=naam
+
+            let pbook=document.getElementsByClassName('bookmarkproject')
+            pbook.addEventListener("click", 
+            function()
+            {
+                pbook.style.display="none"
+            })            
+            
         })
     </script>  
 </body>
