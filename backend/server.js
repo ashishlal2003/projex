@@ -30,6 +30,19 @@ app.use(authRoutes);
 app.use(landRoutes);
 app.use(resetRoutes);
 
+// app.get('/pre-workspace', isLoggedIn, async (req, res) => {
+//     const banda = await model.findOne({_id: req.user._id}).exec();
+//     res.render('profile', {user: banda});
+//   });
+  
+//   function isLoggedIn(req, res, next) {
+//     if (req.isAuthenticated()) {
+//       return next();
+//     }
+//     res.redirect('/login');
+//   }
+  
+
 //Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(()=>{

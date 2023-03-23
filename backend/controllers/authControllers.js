@@ -48,6 +48,8 @@ const logIn = async(req,res)=>{
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if(passwordMatch){
+        // const banda = await model.findOne({_id:req.user._id}).exec();
+        // res.render('pre-workspace',{user:banda});
         res.render('pre-workspace');
       }
 
@@ -60,6 +62,8 @@ const logIn = async(req,res)=>{
       res.status(500).json({err:err.message});
     }
 };
+
+
 
 module.exports = {
     getAuth,
