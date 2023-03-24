@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>projects</title>
+    <title>Projects</title>
 </head>
 <style>
     *
@@ -562,14 +562,14 @@
 <body>
     <div class="left">
         <div class="userdiv">
-            <img id="user" src="./user.png" alt="">
-            <p class="username" id="username">Aditya Dev</p>
-            <p class="email" id="useremail">iamadityadevpro@gmail.com</p>
+            <img id="user" src="https://drive.google.com/uc?id=1HtUgVdz9uDcLpuyQZgz5Sb_s95AFNP65" alt="">
+            <p class="username" id="username"><%=  user.name %> </p>
+            <p class="email" id="useremail"><%=  user.username %></p>
         </div>
         <button id="viewprofile"><img class="icon" id="view" src="./view.png">View Profile</button>
         <button id="editprofile"><img class="icon" id="edit" src="./edit.png">Edit Profile</button>
         <button id="projects"><img class="icon" id="procreate" src="./add.png">Projects</button>
-        <button id="bookmarks"><img class="icon" id="bookmar" src="./bookmarkleft.png">Bookmarks</button>
+        <button id="bookmarks"><img class="icon" id="bookmar" src="./bookmark.png">Bookmarks</button>
         <!-- <button id="logout">Log Out</button> -->
     </div>
     <div class="dialogue" id="diag">
@@ -608,7 +608,7 @@
     </form>
 
     <div id="view_user">
-        <p id="namev">Aditya Dev</p>
+        <p id="namev"><%= user.name %></p>
 
         <p class="labelv" id="organizationlabelv">Institute/Organization</p>
         <p class="butv" id="organizationv">IIIT Dharwad</p>

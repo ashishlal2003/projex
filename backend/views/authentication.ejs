@@ -16,7 +16,7 @@
 
 <body>
   <div class="form1" id="f1">
-    <form action="/signup" method="POST">
+    <form action="/pre-workspace" method="POST">
       <input name="name" class="but" id="uname" type="text" placeholder="Username">
       <input name="username" class="but" id="em1" type="email" placeholder="Email ID">
       <input name="password" class="but" id="pass1" type="password" placeholder="Password">
@@ -24,7 +24,7 @@
       <input class="sub" id="signsub" type="submit" value="Signup" onclick="wrong_pass_alert()">
       <input type="checkbox" id="remember" name="remember_me" value="t&c" required>
       <a id="tc" href="">I agree with terms & conditions</a>
-      <p id="password_not_match">*password not match</p>
+      <p id="password_not_match">*Passwords do not match!</p>
     </form>
 
     <span id="wrong_pass_alert"></span>

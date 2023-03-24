@@ -10,6 +10,7 @@ const getAuth = async (req,res) => {
 } 
 
 
+//SignUp POST 
 const signUp = async(req,res)=>{
     
     const saltRounds = 10;
@@ -23,14 +24,17 @@ const signUp = async(req,res)=>{
       const hashedPassword = await bcrypt.hash(password, salt);
 
       const user = await model.create({name, username, password: hashedPassword});
+
+      res.render('pre-workspace', { user });
     }
     catch(err){
       res.status(400).json({err:err.message});
     }
-    res.redirect('/');
+    // res.redirect('/');
     
 };
 
+//Login POST
 const logIn = async(req,res)=>{
     const {username, password} = req.body;
 
@@ -44,11 +48,11 @@ const logIn = async(req,res)=>{
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if(passwordMatch){
-        res.status(200).json({msg:'Login successful!'});
+        res.render('pre-workspace',{ user })
       }
 
       else{
-        res.status(401).json({err: 'Invalid password'});
+        res.render('authentication');
       }
     }
     catch(err){
@@ -56,6 +60,8 @@ const logIn = async(req,res)=>{
       res.status(500).json({err:err.message});
     }
 };
+
+
 
 module.exports = {
     getAuth,
