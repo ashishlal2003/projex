@@ -48,8 +48,8 @@ const logIn = async(req,res)=>{
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if(passwordMatch){
-        // const banda = await model.findOne({_id:req.user._id}).exec();
-        // res.render('pre-workspace',{user:banda});
+        const banda = await model.findOne({_id:req.banda._id}).exec();
+        res.render('pre-workspace',{user:banda});
         res.render('pre-workspace');
       }
 
