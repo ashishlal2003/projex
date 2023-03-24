@@ -5,9 +5,18 @@ const authRoutes = require('./routes/authRoutes');
 const landRoutes = require('./routes/landingRoutes');
 const resetRoutes = require('./routes/resetRoutes');
 const bodyParser = require('body-parser');
+const session = require('express-session');
 
 //Set up the express app
 const app = express();
+
+
+// Set up session middleware
+app.use(session({
+    secret: 'your secret key',
+    resave: false,
+    saveUninitialized: false,
+  }));
 
 app.use(bodyParser.urlencoded({ extended: true }));
 // Set up EJS as the template engine

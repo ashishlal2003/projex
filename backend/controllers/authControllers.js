@@ -25,7 +25,7 @@ const signUp = async(req,res)=>{
 
       const user = await model.create({name, username, password: hashedPassword});
 
-      res.render('pre-workspace');
+      res.render('pre-workspace', { user });
     }
     catch(err){
       res.status(400).json({err:err.message});
@@ -48,9 +48,7 @@ const logIn = async(req,res)=>{
       const passwordMatch = await bcrypt.compare(password, user.password);
 
       if(passwordMatch){
-        const banda = await model.findOne({_id:req.banda._id}).exec();
-        res.render('pre-workspace',{user:banda});
-        res.render('pre-workspace');
+        res.render('pre-workspace',{ user })
       }
 
       else{

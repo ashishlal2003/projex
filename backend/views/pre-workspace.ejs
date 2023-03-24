@@ -536,8 +536,8 @@
     <div class="left">
         <div class="userdiv">
             <img id="user" src="https://drive.google.com/uc?id=1HtUgVdz9uDcLpuyQZgz5Sb_s95AFNP65" alt="">
-            <p class="username" id="username"><%=  banda.username %> </p>
-            <p class="email" id="useremail">iamadityadevpro@gmail.com</p>
+            <p class="username" id="username"><%=  user.name %> </p>
+            <p class="email" id="useremail"><%=  user.username %></p>
         </div>
         <button id="viewprofile">
             <img class="icon" id="view" src="https://drive.google.com/uc?id=1YMiVSyVkwntuU6-ysGjl7RxuK_MH1jiX" alt="Image here">
@@ -585,7 +585,7 @@
     </form>
 
     <div id="view_user">
-        <p id="namev">Aditya Dev</p>
+        <p id="namev"><%= user.name %></p>
 
         <p class="labelv" id="organizationlabelv">Institute/Organization</p>
         <p class="butv" id="organizationv">IIIT Dharwad</p>
