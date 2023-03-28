@@ -1,551 +1,552 @@
-    *
-    {
-        margin:0;
-    }
-    .nav
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        height:7%;
-        width:100%;
-        background-color: orangered;
-        color: white;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        position: absolute;
-        top:0;
-        font-size: 1.6rem;
-    }
-    .projex
-    {
-        position: absolute;
-        left:20px;
-    }
-    .proname
-    {
-        height:40px;
-        width:15%;
-        position:absolute;
-        top:155px;
-        left:45%;
-        border:solid 2px orange ;
-        font-size: 1.1rem;
-        border-top-left-radius: 10px;
-        border-bottom-left-radius: 10px;
-        padding-left: 15px;
-    }
-    .proname::placeholder
-    {
-        color: rgb(161, 161, 161);
-    }
-    .proname:focus
-    {
-        outline: none;
-        border:solid 2px orange;
-    }
-    .create
-    {
-        height:45px;
-        width:7%;
-        position: absolute;
-        top:155px;
-        left:61%;
-        border:solid 2px orange;
-        border-top-right-radius: 10px;
-        border-bottom-right-radius: 10px;
-        background-color: orange;
-        color: white;
-        font-size: 1.1rem;
-    }
-    .create:hover
-    {
-        background-color: rgb(254, 180, 42);
-        border:solid 2px rgb(254, 180, 42);
-        cursor: pointer;
-    }
-    .left
-    {
-        height: 100%;
-        width: 16.5%;
-        border-right: solid 2px rgb(239, 239, 239);
-        position: absolute;
-        top:0;
-        background-color: rgb(245, 245, 245);
-    }
-    #user
-    {
-        height:30px;
-        position: absolute;
-        top:10px;
-        left:8px;  
-    }
-    .username
-    {
-        color: rgb(78, 78, 78);
-        font-size: 1.2rem;
-        position: relative;
-        left:45px
-    }
-    #useremail
-    {
-        font-size: 0.9rem;
-        color: grey;
-        position: relative;
-        left:45px;
-    }
-    .userdiv
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        height:8%;
-        width: 100%;
-        position: absolute;
-        top:10px;
-    }
-    .icon
-    {
-        opacity: 0.4;
-        height: 21px;
-        position: absolute;
-        left:15px;
-        top:4px;
-    }
-    #viewprofile
-    {
-        height:30px;
-        width: 96%;
-        border:none;
-        position: absolute;
-        top:14%;
-        left:2%;
-        border-radius: 5px;
-        background-color: transparent;
-        font-size: 0.9rem;
-        color: rgb(117, 117, 117);
-        text-align: start;
-        padding-left: 50px;
-    }
-    #editprofile
-    {
-        height:30px;
-        width: 96%;
-        border:none;
-        position: absolute;
-        top:19%;
-        left:2%;
-        border-radius: 5px;
-        background-color: transparent;
-        font-size: 0.9rem;
-        color: rgb(117, 117, 117);
-        text-align: start;
-        padding-left: 50px;
-    }
-    #projects
-    {
-        height:30px;
-        width: 96%;
-        border:none;
-        position: absolute;
-        top:24%;
-        left:2%;
-        border-radius: 5px;
-        background-color: transparent;
-        font-size: 0.9rem;
-        color: rgb(117, 117, 117);
-        text-align: start;
-        padding-left: 50px;
-    }
-    #bookmarks
-    {
-        height:30px;
-        width: 96%;
-        border:none;
-        position: absolute;
-        top:29%;
-        left:2%;
-        border-radius: 5px;
-        background-color: transparent;
-        font-size: 0.9rem;
-        color: rgb(117, 117, 117);
-        text-align: start;
-        padding-left: 50px;
-    }
-    #logout
-    {
-        height:40px;
-        width: 100.5%;
-        border:none;
-        border-bottom: solid 2px rgb(211, 211, 211);
-        position: absolute;
-        bottom:0;
-        background-color: orange;
-        font-size: 1rem;
-        color: white;
-    }
-    #viewprofile:hover, #editprofile:hover, #projects:hover, #bookmarks:hover
-    {
-        background-color: rgb(226, 225, 225);
-        cursor: pointer;
-    }
-    #viewprofile:focus, #editprofile:focus, #projects:focus, #bookmarks:focus, #projects:active
-    {
-        background-color: rgb(200, 200, 200);
-        cursor: pointer;
-    }
-    .dialogue
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        height: 40px;
-        width:14%;
-        background-color: rgb(226, 225, 225);
-        position: absolute;
-        left:0.3%;
-        top:34%;
-        border-radius: 10px;
-        /* border-top-left-radius: 0; */
-        /* border-top-right-radius: 0; */
-        padding: 15px;
-        font-size: 0.85rem;
-        text-align: center;
-        color: rgb(117, 117, 117);
-    }
-    #edit_user
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        height:100vh;
-        width:83vw;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: absolute;
-        top:0;
-        left:16.6%;
-    }
-    #name
-    {
-        height:50px;
-        width:300px;
-        border-radius: 7px;
-        border: solid 1.7px orange;
-        padding-left: 15px;
-        color:rgb(71, 71, 71);
-        font-size: 1rem;
-        position: absolute;
-        top:13%;
-        left:25%;
-    }
-    #name:focus
-    {
-        outline: none;
-        border:solid 1.7px rgb(255, 204, 0);
-    }
-    .but
-    {
-        height: 40px;
-        width: 370px;
-        border-radius: 10px;
-        border:solid 1.7px rgb(207, 207, 207);
-        padding-left: 15px;
-        color: rgb(75, 75, 75);
-        font-size: 0.9rem;
-        margin-bottom: 2.5%;
-    }
-    .but::placeholder
-    {
-        font-size: 0.9rem;
-        color: rgb(137, 136, 136);
-    }
-    .but:focus
-    {
-        outline: none;
-        border:solid 1.7px rgb(163, 163, 163);
-    }
-    .butlabel
-    {
-        font-size: 1rem;
-        color:rgb(62, 62, 62);
-    }
-    #organizationlabel
-    {
-        position: absolute;
-        top:28%;
-        left:25%;
-    }
-    #adresslabel
-    {
-        position: absolute;
-        top:38.15%;
-        left:25%;
-    }
-    #citylabel
-    {
-        position: absolute;
-        top:48.3%;
-        left:25%;
-    }
-    #statelabel
-    {
-        position: absolute;
-        top:58.45%;
-        left:25%;
-    }
-    #countrylabel
-    {
-        position: absolute;
-        top:68.6%;
-        left:25%;
-    }
+*
+{
+    margin:0;
+}
+.nav
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:7%;
+    width:100%;
+    background-color: orangered;
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    position: absolute;
+    top:0;
+    font-size: 1.6rem;
+}
+.projex
+{
+    position: absolute;
+    left:20px;
+}
+.proname
+{
+    height:40px;
+    width:15%;
+    position:absolute;
+    top:155px;
+    left:45%;
+    border:solid 2px orange ;
+    font-size: 1.1rem;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-left: 15px;
+}
+.proname::placeholder
+{
+    color: rgb(161, 161, 161);
+}
+.proname:focus
+{
+    outline: none;
+    border:solid 2px orange;
+}
+.create
+{
+    height:45px;
+    width:7%;
+    position: absolute;
+    top:155px;
+    left:61%;
+    border:solid 2px orange;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    background-color: orange;
+    color: white;
+    font-size: 1.1rem;
+}
+.create:hover
+{
+    background-color: rgb(254, 180, 42);
+    border:solid 2px rgb(254, 180, 42);
+    cursor: pointer;
+}
+.left
+{
+    height: 100%;
+    width: 16.5%;
+    border-right: solid 2px rgb(239, 239, 239);
+    position: absolute;
+    top:0;
+    background-color: rgb(245, 245, 245);
+}
+#user
+{
+    height:30px;
+    position: absolute;
+    top:10px;
+    left:8px;  
+}
+.username
+{
+    color: rgb(78, 78, 78);
+    font-size: 1.2rem;
+    position: relative;
+    left:45px
+}
+#useremail
+{
+    font-size: 0.9rem;
+    color: grey;
+    position: relative;
+    left:45px;
+}
+.userdiv
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:8%;
+    width: 100%;
+    position: absolute;
+    top:10px;
+}
+.icon
+{
+    opacity: 0.4;
+    height: 21px;
+    position: absolute;
+    left:15px;
+    top:4px;
+}
+#viewprofile
+{
+    height:30px;
+    width: 96%;
+    border:none;
+    position: absolute;
+    top:14%;
+    left:2%;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: rgb(117, 117, 117);
+    text-align: start;
+    padding-left: 50px;
+}
+#editprofile
+{
+    height:30px;
+    width: 96%;
+    border:none;
+    position: absolute;
+    top:19%;
+    left:2%;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: rgb(117, 117, 117);
+    text-align: start;
+    padding-left: 50px;
+}
+#projects
+{
+    height:30px;
+    width: 96%;
+    border:none;
+    position: absolute;
+    top:24%;
+    left:2%;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: rgb(117, 117, 117);
+    text-align: start;
+    padding-left: 50px;
+}
+#bookmarks
+{
+    height:30px;
+    width: 96%;
+    border:none;
+    position: absolute;
+    top:29%;
+    left:2%;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 0.9rem;
+    color: rgb(117, 117, 117);
+    text-align: start;
+    padding-left: 50px;
+}
+#logout
+{
+    height:40px;
+    width: 100.5%;
+    border:none;
+    border-bottom: solid 2px rgb(211, 211, 211);
+    position: absolute;
+    bottom:0;
+    background-color: orange;
+    font-size: 1rem;
+    color: white;
+}
+#viewprofile:hover, #editprofile:hover, #projects:hover, #bookmarks:hover
+{
+    background-color: rgb(226, 225, 225);
+    cursor: pointer;
+}
+#viewprofile:focus, #editprofile:focus, #projects:focus, #bookmarks:focus, #projects:active
+{
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+}
+.dialogue
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 40px;
+    width:14%;
+    background-color: rgb(226, 225, 225);
+    position: absolute;
+    left:0.3%;
+    top:34%;
+    border-radius: 10px;
+    /* border-top-left-radius: 0; */
+    /* border-top-right-radius: 0; */
+    padding: 15px;
+    font-size: 0.85rem;
+    text-align: center;
+    color: rgb(117, 117, 117);
+}
+#edit_user
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:100vh;
+    width:83vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top:0;
+    left:16.6%;
+}
+#name
+{
+    height:50px;
+    width:300px;
+    border-radius: 7px;
+    border: solid 1.7px orange;
+    padding-left: 15px;
+    color:rgb(71, 71, 71);
+    font-size: 1rem;
+    position: absolute;
+    top:13%;
+    left:25%;
+}
+#name:focus
+{
+    outline: none;
+    border:solid 1.7px rgb(255, 204, 0);
+}
+.but
+{
+    height: 40px;
+    width: 370px;
+    border-radius: 10px;
+    border:solid 1.7px rgb(207, 207, 207);
+    padding-left: 15px;
+    color: rgb(75, 75, 75);
+    font-size: 0.9rem;
+    margin-bottom: 2.5%;
+}
+.but::placeholder
+{
+    font-size: 0.9rem;
+    color: rgb(137, 136, 136);
+}
+.but:focus
+{
+    outline: none;
+    border:solid 1.7px rgb(163, 163, 163);
+}
+.butlabel
+{
+    font-size: 1rem;
+    color:rgb(62, 62, 62);
+}
+#organizationlabel
+{
+    position: absolute;
+    top:28%;
+    left:25%;
+}
+#adresslabel
+{
+    position: absolute;
+    top:38.15%;
+    left:25%;
+}
+#citylabel
+{
+    position: absolute;
+    top:48.3%;
+    left:25%;
+}
+#statelabel
+{
+    position: absolute;
+    top:58.45%;
+    left:25%;
+}
+#countrylabel
+{
+    position: absolute;
+    top:68.6%;
+    left:25%;
+}
 
-    #organization
-    {
-        position: absolute;
-        top:27%;
-        left:42%;
-    }
-    #adress
-    {
-        position: absolute;
-        top:37%;
-        left:42%;
-    }
-    #city
-    {
-        position: absolute;
-        top:47%;
-        left:42%;
-    }
-    #state
-    {
-        position: absolute;
-        top:57%;
-        left:42%;
-    }
-    #country
-    {
-        position: absolute;
-        top:67%;
-        left:42%;
-    }
-    #save
-    {
-        height:40px;
-        width:100px;
-        background-color: rgb(0, 165, 0);
-        border: none;
-        border-radius: 6px;
-        color:white;
-        position: absolute;
-        top:78.5%;
-        left:25.1%;
-        font-size: 1.2rem;
-    }
-    #save:hover
-    {
-        background-color: rgb(1, 137, 1);
-    }
-    #view_user
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        height:100vh;
-        width:83vw;
-        background-color: white;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        position: absolute;
-        top:0%;
-        left:16.6%;
-    }
-    #namev
-    {
-        font-size: 2.7rem;
-        position: absolute;
-        top:12%;
-        left:25%;
-        font-weight:600;
-        color: rgb(46, 46, 46);
-    }
-    .labelv
-    {
-        font-size: 1rem;
-        color:rgb(62, 62, 62);
-    }
-    .butv
-    {
-        font-size: 1.1rem;
-        color: rgb(48, 48, 48);
-    }
-    #organizationlabelv
-    {
-        position: absolute;
-        top:27%;
-        left:25%;
-    }
-    #adresslabelv
-    {
-        position: absolute;
-        top:35%;
-        left:25%;
-    }
-    #citylabelv
-    {
-        position: absolute;
-        top:43%;
-        left:25%;
-    }
-    #statelabelv
-    {
-        position: absolute;
-        top:51%;
-        left:25%;
-    }
-    #countrylabelv
-    {
-        position: absolute;
-        top:59%;
-        left:25%;
-    }
-    #organizationv
-    {
-        position: absolute;
-        top:27%;
-        left:43%;
-    }
-    #adressv
-    {
-        position: absolute;
-        top:35%;
-        left:43%;
-    }
-    #cityv
-    {
-        position: absolute;
-        top:43%;
-        left:43%;
-    }
-    #statev
-    {
-        position: absolute;
-        top:51%;
-        left:43%;
-    }
-    #countryv
-    {
-        position: absolute;
-        top:59%;
-        left:43%;
-    }
-    #editv
-    {
-        height:35px;
-        width:90px;
-        border: none;
-        background-color: rgb(116, 116, 116);
-        color:white;
-        border-radius: 7px;
-        position: absolute;
-        top:68%;
-        left:25%;
-        font-size: 1rem;
-    }
-    #createhead1
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 2.75rem;
-        position:absolute;
-        top:7%;
-        left:40%;
-        font-weight: 600;
-        color: rgb(65, 65, 65);
-    }
-    .createpoints
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        font-size: 1rem;
-        color: grey;
-    }
-    .points
-    {
-        opacity: 0.8;
-        height: 15px;
-        position: relative;
-        top:2px;
-        left: -10px;
-    }
-    #cp1
-    {
-        position: absolute;
-        top:13%;
-        left:38%;
-    }
-    #cp2
-    {
-        position: absolute;
-        top:17%;
-        left:38%;
-    }
-    #cp3
-    {
-        position: absolute;
-        top:21%;
-        left:38%;
-    }
-    #container
-    {
-        height:65%;
-        width:75%;
-        position: absolute;
-        /* background-color: red; */
-        top:35%;
-        left:23%;
-        display: flex;
-        flex-wrap: wrap;
-    }
-    .projectdiv
-    {
-        height:175px;
-        width: 280px;
-        border: 1.7px solid rgb(185, 185, 185);
-        border-radius: 5px;
-        margin-left: 5%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-    }
-    .projectnamediv
-    {
-        font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        height: 40px;
-        width:100%;
-        background-color: rgb(220, 220, 220);
-        border-bottom-left-radius: 5px;
-        border-bottom-right-radius: 5px;
-        vertical-align:text-bottom;
-        position: relative;
-        top: 80px;
-    }
-    .projectdiv:hover
-    {
-        border: 1.7px solid rgb(146, 146, 146);
-    }
-    .projectnametext
-    {
-        position: absolute;
-        top:6px;
-        left: 15px;
-        font-size: 1.2rem;
-        color: rgb(102, 102, 102);
-        /* background-color: red; */
-    }
-    .bookmarkproject
-    {
-        opacity: 0.7;
-        height:25px;
-        position: relative;
-        right:-120px;
-        top:-85px;
-        cursor: pointer;
-    }
+#organization
+{
+    position: absolute;
+    top:27%;
+    left:42%;
+}
+#adress
+{
+    position: absolute;
+    top:37%;
+    left:42%;
+}
+#city
+{
+    position: absolute;
+    top:47%;
+    left:42%;
+}
+#state
+{
+    position: absolute;
+    top:57%;
+    left:42%;
+}
+#country
+{
+    position: absolute;
+    top:67%;
+    left:42%;
+}
+#save
+{
+    height:40px;
+    width:100px;
+    background-color: rgb(0, 165, 0);
+    border: none;
+    border-radius: 6px;
+    color:white;
+    position: absolute;
+    top:78.5%;
+    left:25.1%;
+    font-size: 1.2rem;
+}
+#save:hover
+{
+    background-color: rgb(1, 137, 1);
+}
+#view_user
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:100vh;
+    width:83vw;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top:0%;
+    left:16.6%;
+}
+#namev
+{
+    font-size: 2.7rem;
+    position: absolute;
+    top:12%;
+    left:25%;
+    font-weight:600;
+    color: rgb(46, 46, 46);
+}
+.labelv
+{
+    font-size: 1rem;
+    color:rgb(62, 62, 62);
+}
+.butv
+{
+    font-size: 1.1rem;
+    color: rgb(48, 48, 48);
+}
+#organizationlabelv
+{
+    position: absolute;
+    top:27%;
+    left:25%;
+}
+#adresslabelv
+{
+    position: absolute;
+    top:35%;
+    left:25%;
+}
+#citylabelv
+{
+    position: absolute;
+    top:43%;
+    left:25%;
+}
+#statelabelv
+{
+    position: absolute;
+    top:51%;
+    left:25%;
+}
+#countrylabelv
+{
+    position: absolute;
+    top:59%;
+    left:25%;
+}
+#organizationv
+{
+    position: absolute;
+    top:27%;
+    left:43%;
+}
+#adressv
+{
+    position: absolute;
+    top:35%;
+    left:43%;
+}
+#cityv
+{
+    position: absolute;
+    top:43%;
+    left:43%;
+}
+#statev
+{
+    position: absolute;
+    top:51%;
+    left:43%;
+}
+#countryv
+{
+    position: absolute;
+    top:59%;
+    left:43%;
+}
+#editv
+{
+    height:35px;
+    width:90px;
+    border: none;
+    background-color: rgb(116, 116, 116);
+    color:white;
+    border-radius: 7px;
+    position: absolute;
+    top:68%;
+    left:25%;
+    font-size: 1rem;
+}
+#createhead1
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2.75rem;
+    position:absolute;
+    top:7%;
+    left:40%;
+    font-weight: 600;
+    color: rgb(65, 65, 65);
+}
+.createpoints
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: grey;
+}
+.points
+{
+    opacity: 0.8;
+    height: 15px;
+    position: relative;
+    top:2px;
+    left: -10px;
+}
+#cp1
+{
+    position: absolute;
+    top:13%;
+    left:38%;
+}
+#cp2
+{
+    position: absolute;
+    top:17%;
+    left:38%;
+}
+#cp3
+{
+    position: absolute;
+    top:21%;
+    left:38%;
+}
+#container
+{
+    height:63%;
+    width:82.5%;
+    position: absolute;
+    /* background-color: red; */
+    top:35%;
+    left:17%;
+    display: flex;
+    flex-wrap: wrap;
+}
+.projectdiv
+{
+    height:175px;
+    width: 260px;
+    border: 1.7px solid rgb(185, 185, 185);
+    border-radius: 5px;
+    margin-left: 2%;
+    margin-right: 2%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.projectnamediv
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 40px;
+    width:100%;
+    background-color: rgb(220, 220, 220);
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    vertical-align:text-bottom;
+    position: relative;
+    top: 80px;
+}
+.projectdiv:hover
+{
+    border: 1.7px solid rgb(146, 146, 146);
+}
+.projectnametext
+{
+    position: absolute;
+    top:6px;
+    left: 15px;
+    font-size: 1.2rem;
+    color: rgb(102, 102, 102);
+    /* background-color: red; */
+}
+.bookmarkproject
+{
+    opacity: 0.7;
+    height:25px;
+    position: relative;
+    right:-110px;
+    top:-85px;
+    cursor: pointer;
+}
