@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const landRoutes = require('./routes/landingRoutes');
 const resetRoutes = require('./routes/resetRoutes');
+const preWorkspaceRoutes = require('./routes/preWorkspaceRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 
@@ -25,9 +26,6 @@ app.set('view engine', 'ejs');
 //Middleware
 app.use(express.json());
 app.use(express.static('public'));
-app.use(express.static('public'));
-
-
 
 app.use((req,res,next)=>{
     console.log(req.path,req.method);
@@ -38,19 +36,7 @@ app.use((req,res,next)=>{
 app.use(authRoutes);
 app.use(landRoutes);
 app.use(resetRoutes);
-
-// app.get('/pre-workspace', isLoggedIn, async (req, res) => {
-//     const banda = await model.findOne({_id: req.user._id}).exec();
-//     res.render('profile', {user: banda});
-//   });
-  
-//   function isLoggedIn(req, res, next) {
-//     if (req.isAuthenticated()) {
-//       return next();
-//     }
-//     res.redirect('/login');
-//   }
-  
+app.use(preWorkspaceRoutes);  
 
 //Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI)

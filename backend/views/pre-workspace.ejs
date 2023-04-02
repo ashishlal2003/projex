@@ -27,14 +27,19 @@
     <div class="dialogue" id="diag">
         <p class="bookmark_diag">You can view your bookmarked projects</p>
     </div>
-    <div id="creatediv">
-        <p id="createhead1">Create your projects here</p>
+    <form action="/projects" method="post">
+        <div id="creatediv">
+            <p id="createhead1">Create your projects here</p>
 
-        <div id="container"></div>
+            <div id="container"></div>
 
-        <input type="text" class="proname" id="proname" placeholder="Project name" required>
-        <button id="create" class="create">Create</button>
-    </div>
+            <input type="text" class="proname" id="proname" placeholder="Project name" required>
+            <button id="create" class="create" type="submit">Create</button>
+
+            
+              
+        </div>
+    </form>
 
     <form action="" id="edit_user">
 
@@ -98,9 +103,9 @@
 
         window.onload=function()
         {
-            diag.style.display="none"
-            edituser.style.display="none"
-            viewuser.style.display="none"
+            // diag.style.display="none"
+            // edituser.style.display="none"
+            // viewuser.style.display="none"
             creatediv.style.display="flex"
         }
 
