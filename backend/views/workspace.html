@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Workspace</title>
+    <link rel="stylesheet" href="../public/css/workspace.css">
+</head>
+<body>
+    <div class="wrapper">
+        <nav class="sidebar">
+            <h2>Project Name</h2>
+            <ul>
+                <li><a href="#">Task Management</a></li>
+                <li><a href="#">Budget Analysis</a></li>
+                <li><a href="#">Documents</a></li>
+                <li><a href="#">Report Analysis</a></li>
+                <li><a href="#">Collaboration</a></li>
+                <li><a href="#">Communication</a></li>
+            </ul>
+        </nav>
+        <main class="main-content">
+
+        </main>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    var links = document.querySelectorAll('.sidebar a');
+
+    links.forEach(function(link) {
+        if (link.href === window.location.href) {
+            link.classList.add('active');
+        }
+    });
+</script>
