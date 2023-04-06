@@ -31,7 +31,22 @@
         <div id="creatediv">
             <p id="createhead1">Create your projects here</p>
 
-            <div id="container"></div>
+            <div id="container">
+                <div class="project-list">
+                    <% if (user.projects && user.projects.length > 0) { %>
+                      <% user.projects.forEach(function(project) { %>
+                        <div class="project-box">
+                          <h3><%= project.name %></h3>
+                          <p>Created by <%= project.createdBy %></p>
+                        </div>
+                      <% }); %>
+                    <% } else { %>
+                      <p>You have not created any projects yet.</p>
+                    <% } %>
+                  </div>
+                  
+                  
+            </div>
 
             <input type="text" class="proname" id="proname" placeholder="Project name" required>
             <button id="create" class="create" type="submit">Create</button>

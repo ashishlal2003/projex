@@ -1,24 +1,40 @@
 const Project = require('../models/preWorkspaceModel');
 
+// Middleware function to check if the user is logged in
+const requireLogin = (req, res, next) => {
+  console.log("req auth: "+req.isAuthenticated())
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect('/login');
+};
+
 const projName = async (req,res) => {
-  const projectName = req.body.projectName;
-  const username = req.session.username;
+  const user = req.session.user;
+  console.log(user);
+  const { projectName } = req.body;
 
-  const project = new Project({
-    name: projectName,
-    createdBy: username
-  });
+  const createdBy = req.user._id;
 
-  project.save()
-    .then(() => {
-      res.render('/pre-workspace');
-    })
-    .catch((error) => {
-      console.log(error);
-      res.status(500).send('Error creating project');
+  try {
+    // Create a new project object with the required fields
+    const newProject = new Project({
+      name: projectName,
+      createdBy: createdBy
     });
+
+    // Save the new project to the database
+    const savedProject = await newProject.save();
+
+    // Redirect to the workspace for the newly created project
+    res.redirect(`/workspace/${savedProject._id}`);
+  } catch (error) {
+    console.error(error);
+    res.sendStatus(500);
+  }
 };
 
 module.exports = {
-    projName
+    projName,
+    requireLogin
 };

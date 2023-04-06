@@ -14,10 +14,12 @@ const app = express();
 
 // Set up session middleware
 app.use(session({
-    secret: 'your secret key',
+    secret: 'your_secret_key',
     resave: false,
     saveUninitialized: false,
-  }));
+    cookie: { secure: true }
+  }))
+  
 
 app.use(bodyParser.urlencoded({ extended: true }));
 // Set up EJS as the template engine
