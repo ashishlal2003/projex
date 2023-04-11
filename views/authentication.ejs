@@ -15,8 +15,14 @@
   <link rel="stylesheet" href="/css/Authentication.css">  
 
 <body>
+
+  
+
   <div class="form1" id="f1">
-    <form action="/pre-workspace" method="POST">
+    <% if (message) { %>
+      <div class="alert alert-success"><%= message %></div>
+  <% } %>
+    <form action="/authentication" method="POST">
       <input name="name" class="but" id="uname" type="text" placeholder="Username">
       <input name="username" class="but" id="em1" type="email" placeholder="Email ID">
       <input name="password" class="but" id="pass1" type="password" placeholder="Password">
@@ -37,7 +43,7 @@
         </div> -->
   </div>
   <div class="form1" id="f2">
-    <form action="/login" method="POST">
+    <form action="/pre-workspace" method="POST">
       <input name="username" class="but" id="em2" type="email" placeholder="Email ID">
       <input name="password" class="but" id="pass2" type="password" placeholder="Password">
       

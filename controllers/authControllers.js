@@ -1,14 +1,24 @@
-const model = require('../models/authModel');
+const model = require('../models/user');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
 
 
+const isAuth = (req,res,next)=>{
+  if(req.session.isAuth){
+    next();
+  }
+  else{
+    res.redirect('/authentication');
+  }
+};
+
 //GET the auth page
 const getAuth = async (req,res) => {
-    req.session.isAuth = true;
-    res.render('authentication');
+    // req.session.isAuth = true;
+    const message = req.query.msg;
+      res.render('authentication', { message });
 } 
 
 
@@ -17,6 +27,12 @@ const signUp = async(req,res)=>{
     
     const saltRounds = 10;
     const {name,username,password} = req.body;
+
+    let user = await model.findOne({username});
+
+    if(user){
+      return res.redirect('/authentication');
+    }
   
     try{
       //Generating a random salt value
@@ -27,7 +43,7 @@ const signUp = async(req,res)=>{
 
       const user = await model.create({name, username, password: hashedPassword});
 
-      res.render('pre-workspace', { user });
+      res.redirect('/authentication?msg=Please%20login%20with%20your%20new%20account');
     }
     catch(err){
       res.status(400).json({err:err.message});
@@ -40,7 +56,7 @@ const signUp = async(req,res)=>{
 const logIn = async(req,res)=>{
     const {username, password} = req.body;
 
-    try{
+    
       const user = await model.findOne({username});
 
       if(!user){
@@ -49,18 +65,13 @@ const logIn = async(req,res)=>{
 
       const passwordMatch = await bcrypt.compare(password, user.password);
 
-      if(passwordMatch){
-        res.render('pre-workspace',{ user })
+      if(!passwordMatch){
+        return res.redirect('/authentication');
       }
 
-      else{
-        res.render('authentication');
-      }
-    }
-    catch(err){
-      console.log(err);
-      res.status(500).json({err:err.message});
-    }
+      req.session.isAuth = true;
+      res.redirect('/pre-workspace');
+    
 };
 
 
@@ -68,5 +79,6 @@ const logIn = async(req,res)=>{
 module.exports = {
     getAuth,
     signUp,
-    logIn
+    logIn,
+    isAuth
 };

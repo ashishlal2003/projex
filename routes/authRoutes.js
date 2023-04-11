@@ -13,21 +13,9 @@ const router = express.Router();
 router.get('/authentication',getAuth);
 
 //POST signup from Auth
-router.post('/pre-workspace',signUp);
+router.post('/authentication',signUp);
 
 //POST login from Auth
-router.post('/login',logIn);
-
-router.get('/pre-workspace', async (req, res) => {
-    try {
-      const user = req.session.user;
-      res.render('pre-workspace', { user });
-    } catch (error) {
-      console.error(error);
-    //   res.render('error');
-    }
-  });
-  
-  
+router.post('/pre-workspace',logIn);
 
 module.exports = router;

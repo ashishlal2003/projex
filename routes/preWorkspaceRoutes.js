@@ -1,16 +1,16 @@
 const express = require('express');
 const {
-    projName,
-    requireLogin
+    getPre
 } = require('../controllers/preWorkspaceControllers');
+
+const {
+  isAuth
+} = require('../controllers/authControllers');
 
 const router = express.Router();
 
-router.post('/projects',projName);
+// router.post('/projects',projName);
 
-// Route for the create project form
-router.get('/create-project', requireLogin, (req, res) => {
-    res.render('pre-workspace', { user: req.user });
-  });
+router.get('/pre-workspace',isAuth, getPre);
 
 module.exports = router;

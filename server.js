@@ -3,7 +3,6 @@ const express = require('express');
 const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const landRoutes = require('./routes/landingRoutes');
-const resetRoutes = require('./routes/resetRoutes');
 const preWorkspaceRoutes = require('./routes/preWorkspaceRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session');
@@ -42,7 +41,6 @@ app.use((req,res,next)=>{
 //Routes
 app.use(authRoutes);
 app.use(landRoutes);
-app.use(resetRoutes);
 app.use(preWorkspaceRoutes);  
 
 //Connecting to MongoDB
