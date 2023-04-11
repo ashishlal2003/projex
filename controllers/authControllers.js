@@ -16,7 +16,6 @@ const isAuth = (req,res,next)=>{
 
 //GET the auth page
 const getAuth = async (req,res) => {
-    // req.session.isAuth = true;
     const message = req.query.msg;
       res.render('authentication', { message });
 } 
@@ -28,7 +27,7 @@ const signUp = async(req,res)=>{
     const saltRounds = 10;
     const {name,username,password} = req.body;
 
-    let user = await model.findOne({username});
+    const user = await model.findOne({username});
 
     if(user){
       return res.redirect('/authentication');
@@ -70,6 +69,7 @@ const logIn = async(req,res)=>{
       }
 
       req.session.isAuth = true;
+      // req.session.user = user;
       res.redirect('/pre-workspace');
     
 };

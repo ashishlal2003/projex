@@ -550,3 +550,12 @@
     top:-85px;
     cursor: pointer;
 }
+#logout
+{
+    height: 30px;
+    width: 100px;
+    background-color: rgb(66, 66, 66);
+    color: white;
+    position: absolute;
+    bottom: 5%;
+}
