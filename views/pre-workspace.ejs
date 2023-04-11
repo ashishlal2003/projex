@@ -11,8 +11,8 @@
     <div class="left">
         <div class="userdiv">
             <img id="user" src="https://drive.google.com/uc?id=1HtUgVdz9uDcLpuyQZgz5Sb_s95AFNP65" alt="">
-            <p class="username" id="username"><%=  user.name %> </p>
-            <p class="email" id="useremail"><%=  user.username %></p>
+            <p class="username" id="username"> <%= user.name %> </p>
+            <p class="email" id="useremail"><%= user.username %></p>
         </div>
         <button id="viewprofile">
             <img class="icon" id="view" src="https://drive.google.com/uc?id=1YMiVSyVkwntuU6-ysGjl7RxuK_MH1jiX" alt="Image here">
@@ -22,24 +22,21 @@
         <button id="editprofile"><img class="icon" id="edit" src="https://drive.google.com/uc?id=1D3uDvm7DeKQTLKwLubvDusiefhB1R3l6">Edit Profile</button>
         <button id="projects"><img class="icon" id="procreate" src="https://drive.google.com/uc?id=1lEAaaBARIHuzHd08MWYzmc_hb4aWkNT-/view?usp=share_link">Projects</button>
         <button id="bookmarks"><img class="icon" id="bookmar" src="https://drive.google.com/uc?id=1okZPuKKEU-sf7kmCS4XCLxuSjqTPSc3M">Bookmarks</button>
-        <!-- <button id="logout">Log Out</button> -->
+        <form action="/logout" method="post">
+        <button id="logout">Log Out</button>
+    </form>
     </div>
     <div class="dialogue" id="diag">
         <p class="bookmark_diag">You can view your bookmarked projects</p>
     </div>
-    <form action="/projects" method="post">
-        <div id="creatediv">
-            <p id="createhead1">Create your projects here</p>
+    <div id="creatediv">
+        <p id="createhead1">Create your projects here</p>
 
-            <div id="container"></div>
+        <div id="container"></div>
 
-            <input type="text" class="proname" id="proname" placeholder="Project name" required>
-            <button id="create" class="create" type="submit">Create</button>
-
-            
-              
-        </div>
-    </form>
+        <input type="text" class="proname" id="proname" placeholder="Project name" required>
+        <button id="create" class="create">Create</button>
+    </div>
 
     <form action="" id="edit_user">
 
@@ -85,7 +82,9 @@
         <button id="editv">Edit</button>
     </div>
 
+
     <script>
+        let reload=document.getElementById('reload')
         let projects=document.getElementById('projects')
         let editprofile=document.getElementById('editprofile')
         let viewprofile=document.getElementById('viewprofile')
@@ -103,9 +102,9 @@
 
         window.onload=function()
         {
-            // diag.style.display="none"
-            // edituser.style.display="none"
-            // viewuser.style.display="none"
+            diag.style.display="none"
+            edituser.style.display="none"
+            viewuser.style.display="none"
             creatediv.style.display="flex"
         }
 
@@ -160,36 +159,43 @@
             creatediv.style.display="flex"
         })
 
+        let i=0
         create.addEventListener("click",
         function()
         {
-            const projectdiv=document.createElement("div")
-            projectdiv.classList.add("projectdiv")
-            container.appendChild(projectdiv)   
-
-            const projectnamediv=document.createElement("div")
-            projectnamediv.classList.add("projectnamediv")
-            projectdiv.appendChild(projectnamediv) 
-
-            const projectnametext=document.createElement("span")
-            projectnametext.classList.add("projectnametext")
-            projectnamediv.appendChild(projectnametext) 
-
-            const bookmarkproject=document.createElement("img")
-            bookmarkproject.classList.add("bookmarkproject")
-            projectdiv.appendChild(bookmarkproject) 
-
-            bookmarkproject.src="./bookmark.png"
-            let naam=document.getElementById('proname').value
-            projectnametext.innerHTML=naam
-
-            let pbook=document.getElementsByClassName('bookmarkproject')
-            pbook.addEventListener("click", 
-            function()
+            if(i>=8)
             {
-                pbook.style.display="none"
-            })            
-            
+                alert("you cannot create more projects")
+            }
+            else
+            {
+                const projectdiv=document.createElement("div")
+                projectdiv.classList.add("projectdiv")
+                container.appendChild(projectdiv)   
+
+                const projectnamediv=document.createElement("div")
+                projectnamediv.classList.add("projectnamediv")
+                projectdiv.appendChild(projectnamediv) 
+
+                const projectnametext=document.createElement("span")
+                projectnametext.classList.add("projectnametext")
+                projectnamediv.appendChild(projectnametext) 
+
+                const bookmarkproject=document.createElement("img")
+                bookmarkproject.classList.add("bookmarkproject")
+                projectdiv.appendChild(bookmarkproject) 
+
+                bookmarkproject.src="./pre_workspace_img/bookmark.png"
+                let naam=document.getElementById('proname').value
+                projectnametext.innerHTML=naam 
+
+                bookmarkproject.addEventListener("click",
+                function()
+                {
+                    container.removeChild(projectdiv);
+                })
+            }
+            i++;
         })
     </script>  
 </body>

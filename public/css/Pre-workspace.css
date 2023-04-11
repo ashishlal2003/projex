@@ -103,15 +103,15 @@
 }
 .icon
 {
-    opacity: 0.4;
-    height: 21px;
+    opacity: 0.5;
+    height: 20px;
     position: absolute;
     left:15px;
     top:4px;
 }
 #viewprofile
 {
-    height:30px;
+    height:35px;
     width: 96%;
     border:none;
     position: absolute;
@@ -119,67 +119,55 @@
     left:2%;
     border-radius: 5px;
     background-color: transparent;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgb(117, 117, 117);
     text-align: start;
     padding-left: 50px;
 }
 #editprofile
 {
-    height:30px;
+    height:35px;
     width: 96%;
     border:none;
     position: absolute;
-    top:19%;
+    top:19.5%;
     left:2%;
     border-radius: 5px;
     background-color: transparent;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgb(117, 117, 117);
     text-align: start;
     padding-left: 50px;
 }
 #projects
 {
-    height:30px;
+    height:35px;
     width: 96%;
     border:none;
     position: absolute;
-    top:24%;
+    top:25%;
     left:2%;
     border-radius: 5px;
     background-color: transparent;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgb(117, 117, 117);
     text-align: start;
     padding-left: 50px;
 }
 #bookmarks
 {
-    height:30px;
+    height:35px;
     width: 96%;
     border:none;
     position: absolute;
-    top:29%;
+    top:30.5%;
     left:2%;
     border-radius: 5px;
     background-color: transparent;
-    font-size: 0.9rem;
+    font-size: 1rem;
     color: rgb(117, 117, 117);
     text-align: start;
     padding-left: 50px;
-}
-#logout
-{
-    height:40px;
-    width: 100.5%;
-    border:none;
-    border-bottom: solid 2px rgb(211, 211, 211);
-    position: absolute;
-    bottom:0;
-    background-color: orange;
-    font-size: 1rem;
-    color: white;
 }
 #viewprofile:hover, #editprofile:hover, #projects:hover, #bookmarks:hover
 {
@@ -549,4 +537,23 @@
     right:-110px;
     top:-85px;
     cursor: pointer;
+}
+#bmark
+{
+    opacity: 0.7;
+    height:25px;
+    position: relative;
+    right:-110px;
+    top:-85px;
+    cursor: pointer;
+}
+
+#logout
+{
+    height: 30px;
+    width: 100px;
+    background-color: rgb(66, 66, 66);
+    color: white;
+    position: absolute;
+    bottom: 5%;
 }
