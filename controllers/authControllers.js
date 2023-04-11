@@ -55,7 +55,7 @@ const signUp = async(req,res)=>{
 const logIn = async(req,res)=>{
     const {username, password} = req.body;
 
-    
+    try{
       const user = await model.findOne({username});
 
       if(!user){
@@ -64,16 +64,24 @@ const logIn = async(req,res)=>{
 
       const passwordMatch = await bcrypt.compare(password, user.password);
 
-      if(!passwordMatch){
-        return res.redirect('/authentication');
-      }
-
-      req.session.isAuth = true;
+      if(passwordMatch){
+        // res.render('pre-workspace',{ user })
+        req.session.isAuth = true;
       // req.session.user = user;
-      res.redirect('/pre-workspace');
+      res.render('pre-workspace',{ user });
+      }
+  
+      else{
+        res.render('authentication');
+      }
+    }
+
+    catch(err){
+      console.log(err);
+      res.status(500).json({err:err.message});
+    }
     
 };
-
 
 
 module.exports = {
