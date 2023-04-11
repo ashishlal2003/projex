@@ -28,7 +28,7 @@ const signUp = async(req,res)=>{
     const saltRounds = 10;
     const {name,username,password} = req.body;
 
-    let user = await model.findOne({username});
+    const user = await model.findOne({username});
 
     if(user){
       return res.redirect('/authentication');
