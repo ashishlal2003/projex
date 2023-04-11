@@ -7,17 +7,22 @@ const resetRoutes = require('./routes/resetRoutes');
 const preWorkspaceRoutes = require('./routes/preWorkspaceRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session');
+const MongoDBSession = require('connect-mongodb-session')(session);
 
 //Set up the express app
 const app = express();
 
+const store = new MongoDBSession({
+    uri: process.env.MONGO_URI,
+    collection: "mySessions"
+})
 
 // Set up session middleware
 app.use(session({
-    secret: 'your_secret_key',
+    secret: process.env.your_secret,
     resave: false,
     saveUninitialized: false,
-    cookie: { secure: true }
+    store: store
   }))
   
 
@@ -41,7 +46,10 @@ app.use(resetRoutes);
 app.use(preWorkspaceRoutes);  
 
 //Connecting to MongoDB
-mongoose.connect(process.env.MONGO_URI)
+mongoose.connect(process.env.MONGO_URI,{
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
     .then(()=>{
         //listen for requests
         app.listen(process.env.PORT, ()=>{

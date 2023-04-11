@@ -2,10 +2,12 @@ const model = require('../models/authModel');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
+const session = require('express-session');
 
 
 //GET the auth page
 const getAuth = async (req,res) => {
+    req.session.isAuth = true;
     res.render('authentication');
 } 
 
