@@ -1,48 +1,353 @@
-* {
-    box-sizing: border-box;
+*
+{
+    margin:0;
 }
-
-body {
-    margin: 0;
-    padding: 0;
+#back
+{
+    height: 100vh;
+    /* background-color: rgba(66, 66, 139, 0.307); */
+    width: 100%;
+    position: absolute;
+    top:0;
 }
-
-.wrapper {
+.left
+{
+    height:100vh;
+    width:16.5%;
+    background-color: rgb(245, 245, 245);
+    border-right: solid 2px rgb(239, 239, 239);
+    position: absolute;
+    top:0;
     display: flex;
-    min-height: 100vh;
+    flex-direction: column;
 }
-
-.sidebar {
-    width: 200px;
-    background-color: #d5d3d3;
-    color: #070606;
-    padding: 10px;
+#project_name
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2rem;
+    color: rgb(75, 75, 75);
+    padding-top:7px;
+    padding-left: 13px;
+    padding-bottom: 14px;
 }
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+#addmember
+{
+    margin-bottom: 7%;
+    background-color: rgb(126, 123, 123);
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    height: 30px;
+    width: 55%;
+    position: relative;
+    left:4%;
 }
-
-.sidebar li {
-    margin-bottom: 10px;
-}
-
-.sidebar a {
-    color: #100d0d;
-    text-decoration: none;
-    display: block;
-    padding: 10px;
+.features
+{
+    height:35px;
+    width:95%;
+    background-color: transparent;
+    border:none;
     border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-size: 1rem;
+    text-align: start;
+    margin-bottom: 2%;
+    color: rgb(117, 117, 117);
+    position: relative;
+    left: 2.5%;
 }
-
-.sidebar a:hover {
-    background-color: #969696;
+.features:hover
+{
+    background-color: rgb(226, 225, 225);
+    cursor: pointer;
 }
-
-.main-content {
-    flex: 1;
-    padding: 20px;
+.features:focus
+{
+    background-color: rgb(200, 200, 200);
+    cursor: pointer;
+    color: rgb(83, 83, 83);
+}
+.logo_but
+{
+    height: 20px;
+    opacity: 0.5;
+    padding-right: 20px;
+    position: relative;
+    left: 5px;
+}
+#add_mem
+{
+    z-index: 2;
+    height:80vh;
+    width:35%;
+    position: absolute;
+    left:32.5%;
+    top:10%;
+    background-color: white;
+    border-radius: 10px;
+}
+#email
+{
+    height:30px;
+    width:40%;
+    border:solid 1px rgb(194, 194, 194);
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 10px;
+    font-size: 0.95rem;
+    position: absolute;
+    top:25px;
+    left:33.2%;
+}
+#email:focus, #role:focus
+{
+    outline:none;
+}
+#email_img
+{
+    height:22.0px;
+    opacity: 0.5;
+    border:solid 1px rgb(143, 143, 143);
+    padding: 5px;
+    border-right: 0;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: absolute;
+    top:25px;
+    left:27%;
+}
+#role
+{
+    height:30px;
+    width:40%;
+    border:solid 1px rgb(194, 194, 194);
+    border-radius: 5px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    padding-left: 10px;
+    font-size: 0.95rem;
+    position: absolute;
+    top:75px;
+    left:33.2%;
+}
+#role_img
+{
+    height:22.0px;
+    opacity: 0.5;
+    border:solid 1px rgb(143, 143, 143);
+    padding: 5px;
+    border-right: 0;
+    border-radius: 5px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: absolute;
+    top:75px;
+    left:27%;
+}
+#role::placeholder,#email::placeholder
+{
+    color: rgb(157, 157, 157);
+    font-size: 100;
+}
+#invite
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:35px;
+    width:15%;
+    /* background-color: #352fd9ea; */
+    background-color: orange;
+    border-radius: 3px;
+    color: white;
+    border:none;
+    font-size: 1.05rem;
+    font-weight: 500;
+    position: absolute;
+    top:125px;
+    left:42.5%;
+    cursor: pointer;
+}
+#close
+{
+    height:12px;
+    opacity: 0.6;
+    position: absolute;
+    top:13px;
+    right: 13px;
+    cursor: pointer;
+}
+#tophr
+{
+    width:80%;
+    border: solid 1px rgb(203, 203, 203);
+    position: absolute;
+    top:30%;
+    left:10%;
+}
+#bottomhr
+{
+    width:80%;
+    border: solid 1px rgb(203, 203, 203);
+    position: absolute;
+    top:36%;
+    left:10%;
+}
+#user_label
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color:grey;
+    position: absolute;
+    top:31%;
+    left:11%;
+}
+#role_label
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color:grey;
+    position: absolute;
+    top:31%;
+    left:70%;
+}
+#mem_owner
+{
+    height:60px;
+    width:80%;
+    /* background-color: red; */
+    position: absolute;
+    top:36.5%;
+    left:10%;
+    border-bottom: solid 2px rgb(203, 203, 203);
+}
+#owner_name_add_mem
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    color: rgb(55, 55, 55);
+    position: absolute;
+    top:12%;
+    left:1%;
+}
+#owner_email_add_mem
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+    color: rgb(117, 117, 117);
+    position: absolute;
+    top:50%;
+    left:1%;
+}
+#owner_role_add_mem
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: rgb(108, 108, 108);
+    position: absolute;
+    top: 27%;
+    right:2%;
+}
+.container
+{
+    height: 270px;
+    width: 80%;
+    /* background-color: red; */
+    position: absolute;
+    top:46.8%;
+    left: 10%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.mem_new
+{
+    height:60px;
+    width:100%;
+    border-bottom: solid 2px rgb(203, 203, 203);
+    margin-bottom: 2px;
+}
+.mem_new_name
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1.1rem;
+    color: rgb(55, 55, 55);
+    position: relative;
+    top:12%;
+    left:1%;
+}
+.mem_new_email
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 0.9rem;
+    color: rgb(117, 117, 117);
+    position: relative;
+    top:10%;
+    left:1%;
+}
+.mem_new_role_div
+{
+    height: 30px;
+    width:200px;
+    position: relative;
+    top:-50%;
+    left:51.5%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.mem_new_role
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    color: rgb(108, 108, 108);
+}
+#membertask
+{
+    height:30px;
+    width:100px;
+    background-color: violet;
+    color:white;
+    border: none;
+    border-radius: 3px;
+    position: absolute;
+    top:15%;
+    left:35%;
+}
+#container_task
+{
+    height:200px;
+    width: 200px;
+    /* background-color: burlywood; */
+    position:absolute;
+    top:20%;
+    left:35%;
+    display: flex;
+    flex-direction: column;
+}
+#collection_member_task
+{
+    height:200px;
+    width: 200px;
+    background-color: rgb(66, 193, 127);
+    position:absolute;
+    top:10%;
+    left:55%;
+    display: flex;
+    flex-direction: column;
+}
+.mem_task
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:35px;
+    width:95%;
+    background-color: chocolate;
+    border-radius: 5px;
+    color: white;
+    margin-top: 1%;
+    margin-bottom: 1%;
+    position: relative;
+    left: 2.5%;
+    text-align: center;
 }
