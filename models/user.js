@@ -3,14 +3,16 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-    username: {
+    name: {
         type: String,
         required: true
     },
 
-    email: {
+    username: {
         type: String,
-        required: true
+        required: true,
+        unique: true,
+        sparse: true
     },
 
     password: {
@@ -18,13 +20,28 @@ const userSchema = new Schema({
         required: true
     },
 
-    projects:[{
-        productId: {
-            type: Schema.Types.ObjectId,
-            ref: 'Product',
-            required: true
-        }
-    }]
+    // projects:[{
+    //     productId: {
+    //         type: Schema.Types.ObjectId,
+    //         ref: 'Product',
+    //         required: true
+    //     }
+    // }]
+    phone_number: {
+        type: String
+    },
+
+    country: {
+        type:String
+    },
+
+    role: {
+        type: String
+    },
+
+    createdAt: {
+        type: Date
+    }
 });
 
 //Project addition methods pending

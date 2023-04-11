@@ -4,13 +4,14 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const session = require('express-session');
-// const MongoDBStore = require('connect-mongodb-session')(session);
+const MongoDBSession = require('connect-mongodb-session')(session);
 
 
 const envKeys = require('./keys');
 //Routes
 const landingRoutes = require('./routes/landing');
 const authRoutes = require('./routes/authentication');
+const preRoutes = require('./routes/pre-workspace');
 
 //Models
 
@@ -27,19 +28,32 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.static('public'));
 
+const store = new MongoDBSession({
+    uri: envKeys.MONGO_URI,
+    collection: 'mySessions'
+})
+
 app.use(session({
     secret: envKeys.SESSION_SECRET_KEY,
     resave: false,
     saveUninitialized: false,
+    store: store
 }));
+
+
 
 app.use(landingRoutes);
 app.use(authRoutes);
+app.use(preRoutes);
 
 
 
+mongoose.connect(envKeys.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+    // createIndexes: true
+})
 
-mongoose.connect(envKeys.MONGO_URI)
     .then(()=>{
         //listen for requests
         app.listen(process.env.PORT, ()=>{
