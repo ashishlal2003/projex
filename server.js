@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 const authRoutes = require('./routes/authRoutes');
 const landRoutes = require('./routes/landingRoutes');
 const preWorkspaceRoutes = require('./routes/preWorkspaceRoutes');
+const workspaceRoutes = require('./routes/workspaceRoutes');
 const bodyParser = require('body-parser');
 const session = require('express-session');
 const MongoDBSession = require('connect-mongodb-session')(session);
@@ -42,6 +43,7 @@ app.use((req,res,next)=>{
 app.use(authRoutes);
 app.use(landRoutes);
 app.use(preWorkspaceRoutes);  
+app.use(workspaceRoutes);
 
 //Connecting to MongoDB
 mongoose.connect(process.env.MONGO_URI,{

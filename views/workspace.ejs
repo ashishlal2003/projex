@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=3, initial-scale=1.0">
     <title>workspace</title>
-    <link rel="stylesheet" href="workspace.css">
+    <link rel="stylesheet" href="/css/workspace.css">
 </head>
 <style>
 </style>
@@ -40,9 +40,9 @@
         <hr id="bottomhr">
 
         <div id="mem_owner">
-            <p id="owner_name_add_mem">Aditya Dev</p>
-            <p id="owner_email_add_mem">iamadityadevpro@gmail.com</p>
-            <p id="owner_role_add_mem">Forntendz Developer</p>
+            <p id="owner_name_add_mem"> <%= user.name %> </p>
+            <p id="owner_email_add_mem"><%= user.username %></p>
+            <p id="owner_role_add_mem"> Creator </p>
         </div>
         <div class="container" id="container"></div>
     </div>

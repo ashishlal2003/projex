@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
 </head>
-<link rel="stylesheet" href="/css/Pre-workspace.css">
+<link rel="stylesheet" href="/css/pre-workspace.css">
 <body>
     <div class="left">
         <div class="userdiv">
@@ -176,6 +176,15 @@
                 const projectnamediv=document.createElement("div")
                 projectnamediv.classList.add("projectnamediv")
                 projectdiv.appendChild(projectnamediv) 
+                
+                // Add an onClick event listener to the projectnamediv element
+                projectdiv.addEventListener("click", function() {
+                // Get the project name from the projectnamediv's text content
+                const projectName = projectdiv.textContent.trim();
+
+                // Redirect to the workspace page with the project name as a parameter
+                window.location.href = '/workspace?project=' + projectName;
+                });
 
                 const projectnametext=document.createElement("span")
                 projectnametext.classList.add("projectnametext")
