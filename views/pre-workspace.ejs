@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
 </head>
-<link rel="stylesheet" href="/css/Pre-workspace.css">
+<link rel="stylesheet" href="/css/pre-workspace.css">
 <body>
     <div class="left">
         <div class="userdiv">
@@ -29,22 +29,14 @@
     <div class="dialogue" id="diag">
         <p class="bookmark_diag">You can view your bookmarked projects</p>
     </div>
-    <form action="/projects" method="post">
-        <div id="creatediv">
-            <p id="createhead1">Create your projects here</p>
+    <div id="creatediv">
+        <p id="createhead1">Create your projects here</p>
 
-            
-                  
-                  
-            
+        <div id="container"></div>
 
-            <input type="text" class="proname" id="proname" placeholder="Project name" required>
-            <button id="create" class="create" type="submit">Create</button>
-
-            
-              
-        </div>
-    </form>
+        <input type="text" class="proname" id="proname" placeholder="Project name" required>
+        <button id="create" class="create">Create</button>
+    </div>
 
     <form action="" id="edit_user">
 
@@ -90,7 +82,9 @@
         <button id="editv">Edit</button>
     </div>
 
+
     <script>
+        let reload=document.getElementById('reload')
         let projects=document.getElementById('projects')
         let editprofile=document.getElementById('editprofile')
         let viewprofile=document.getElementById('viewprofile')
@@ -108,9 +102,9 @@
 
         window.onload=function()
         {
-            // diag.style.display="none"
-            // edituser.style.display="none"
-            // viewuser.style.display="none"
+            diag.style.display="none"
+            edituser.style.display="none"
+            viewuser.style.display="none"
             creatediv.style.display="flex"
         }
 
@@ -165,36 +159,52 @@
             creatediv.style.display="flex"
         })
 
+        let i=0
         create.addEventListener("click",
         function()
         {
-            const projectdiv=document.createElement("div")
-            projectdiv.classList.add("projectdiv")
-            container.appendChild(projectdiv)   
-
-            const projectnamediv=document.createElement("div")
-            projectnamediv.classList.add("projectnamediv")
-            projectdiv.appendChild(projectnamediv) 
-
-            const projectnametext=document.createElement("span")
-            projectnametext.classList.add("projectnametext")
-            projectnamediv.appendChild(projectnametext) 
-
-            const bookmarkproject=document.createElement("img")
-            bookmarkproject.classList.add("bookmarkproject")
-            projectdiv.appendChild(bookmarkproject) 
-
-            bookmarkproject.src="./bookmark.png"
-            let naam=document.getElementById('proname').value
-            projectnametext.innerHTML=naam
-
-            let pbook=document.getElementsByClassName('bookmarkproject')
-            pbook.addEventListener("click", 
-            function()
+            if(i>=8)
             {
-                pbook.style.display="none"
-            })            
-            
+                alert("you cannot create more projects")
+            }
+            else
+            {
+                const projectdiv=document.createElement("div")
+                projectdiv.classList.add("projectdiv")
+                container.appendChild(projectdiv)   
+
+                const projectnamediv=document.createElement("div")
+                projectnamediv.classList.add("projectnamediv")
+                projectdiv.appendChild(projectnamediv) 
+                
+                // Add an onClick event listener to the projectnamediv element
+                projectdiv.addEventListener("click", function() {
+                // Get the project name from the projectnamediv's text content
+                const projectName = projectdiv.textContent.trim();
+
+                // Redirect to the workspace page with the project name as a parameter
+                window.location.href = '/workspace?project=' + projectName;
+                });
+
+                const projectnametext=document.createElement("span")
+                projectnametext.classList.add("projectnametext")
+                projectnamediv.appendChild(projectnametext) 
+
+                const bookmarkproject=document.createElement("img")
+                bookmarkproject.classList.add("bookmarkproject")
+                projectdiv.appendChild(bookmarkproject) 
+
+                bookmarkproject.src="./pre_workspace_img/bookmark.png"
+                let naam=document.getElementById('proname').value
+                projectnametext.innerHTML=naam 
+
+                bookmarkproject.addEventListener("click",
+                function()
+                {
+                    container.removeChild(projectdiv);
+                })
+            }
+            i++;
         })
     </script>  
 </body>
