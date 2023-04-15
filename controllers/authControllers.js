@@ -67,7 +67,7 @@ const logIn = async(req,res)=>{
       if(passwordMatch){
         // res.render('pre-workspace',{ user })
         req.session.isAuth = true;
-      // req.session.user = user;
+      req.session.user = user;
       res.render('pre-workspace',{ user });
       }
   

@@ -16,15 +16,11 @@
 
 const session = require('express-session');
 
-
 //GET the landing page
 const getWorkspace = async (req,res) => {
     const user = req.session.user;
     res.render('workspace',{ user });
 } 
-
-
-
 
 
 module.exports = {
