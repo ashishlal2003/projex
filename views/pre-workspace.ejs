@@ -32,11 +32,27 @@
     <div id="creatediv">
         <p id="createhead1">Create your projects here</p>
 
-        <div id="container"></div>
+        <div id="container">
+           
+                <% if (projects.length > 0) { %>
+                  <% projects.forEach(project => { %>
+                    <div class="projectdiv"><%= project.name %></div>
+                  <% }); %>
 
-        <input type="text" class="proname" id="proname" placeholder="Project name" required>
+                <% } else { %>
+                  <p>No projects found</p>
+                <% } %>
+            
+        </div>
+        <form method="post" action="/create-project">
+        <input name="projectName" type="text" class="proname" id="proname" placeholder="Project name" required>
         <button id="create" class="create">Create</button>
+    </form>
     </div>
+    
+        
+          
+      
 
     <form action="" id="edit_user">
 
@@ -160,52 +176,45 @@
         })
 
         let i=0
-        create.addEventListener("click",
-        function()
-        {
-            if(i>=8)
-            {
-                alert("you cannot create more projects")
-            }
-            else
-            {
-                const projectdiv=document.createElement("div")
-                projectdiv.classList.add("projectdiv")
-                container.appendChild(projectdiv)   
-
-                const projectnamediv=document.createElement("div")
-                projectnamediv.classList.add("projectnamediv")
-                projectdiv.appendChild(projectnamediv) 
+//         create.addEventListener("click", function() {
+//             if (i >= 8) {
+//                 alert("you cannot create more projects");
+//             } else {
+//                 const projectdiv=document.createElement("div")
+//                 projectdiv.classList.add("projectdiv")
+//                 container.appendChild(projectdiv)   
+//                 const projectnamediv=document.createElement("div")
+//                 projectnamediv.classList.add("projectnamediv")
+//                 projectdiv.appendChild(projectnamediv) 
                 
-                // Add an onClick event listener to the projectnamediv element
-                projectdiv.addEventListener("click", function() {
-                // Get the project name from the projectnamediv's text content
-                const projectName = projectdiv.textContent.trim();
+//                 // Add an onClick event listener to the projectnamediv element
+//                 projectdiv.addEventListener("click", function() {
+//                 // Get the project name from the projectnamediv's text content
+//                 const projectName = projectdiv.textContent.trim();
+//                 // Redirect to the workspace page with the project name as a parameter
+//                 window.location.href = '/workspace?project=' + projectName;
+//                 });
+//                 const projectnametext=document.createElement("span")
+//                 projectnametext.classList.add("projectnametext")
+//                 projectnamediv.appendChild(projectnametext) 
 
-                // Redirect to the workspace page with the project name as a parameter
-                window.location.href = '/workspace?project=' + projectName;
-                });
 
-                const projectnametext=document.createElement("span")
-                projectnametext.classList.add("projectnametext")
-                projectnamediv.appendChild(projectnametext) 
 
-                const bookmarkproject=document.createElement("img")
-                bookmarkproject.classList.add("bookmarkproject")
-                projectdiv.appendChild(bookmarkproject) 
+//     const bookmarkproject = document.createElement("img");
+//     bookmarkproject.classList.add("bookmarkproject");
+//     projectdiv.appendChild(bookmarkproject);
 
-                bookmarkproject.src="https://drive.google.com/uc?id=1K-oCbuOAi81pP2txElgjXu_Wn7ODur0i"
-                let naam=document.getElementById('proname').value
-                projectnametext.innerHTML=naam 
+//     bookmarkproject.src = "https://drive.google.com/uc?id=1K-oCbuOAi81pP2txElgjXu_Wn7ODur0i";
+//     let naam = document.getElementById('proname').value;
+//     projectnametext.innerHTML = naam;
 
-                bookmarkproject.addEventListener("click",
-                function()
-                {
-                    container.removeChild(projectdiv);
-                })
-            }
-            i++;
-        })
+//     bookmarkproject.addEventListener("click", function() {
+//       container.removeChild(projectdiv);
+//     });
+//   }
+//   i++;
+// });
+
     </script>  
 </body>
 </html>

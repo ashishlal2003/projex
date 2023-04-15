@@ -2,16 +2,17 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const projectSchema = new Schema({
-    projName:{
+    name:{
         type:String,
         required: true
     },
 
-    projDesc:{
+    description:{
         type: String
     },
     startDate:{
-        type: Date
+        type: Date,
+        default: Date.now
     },
     endDate:{
         type: Date
@@ -19,10 +20,10 @@ const projectSchema = new Schema({
     status:{
         type:String
     },
-    createdBy:{
-        type:String,
-        required:true,
-        ref: 'user'
+    createdBy: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user',
+        required: true
     }
 });
 

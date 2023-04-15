@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const bcrypt = require('bcrypt');
 const session = require('express-session');
+const Project = require('../models/project');
 
 
 const isAuth = (req,res,next)=>{
@@ -68,10 +69,16 @@ const logIn = async(req,res)=>{
         // res.render('pre-workspace',{ user })
         req.session.isAuth = true;
       req.session.user = user;
-      res.render('pre-workspace',{ user });
+      // const user = req.session.user;
+  const projects = await Project.find({ createdBy: user._id });
+  // console.log(projects);
+  console.log("okkk");
+  res.render('pre-workspace',{ user,projects });
+      
       }
   
       else{
+        console.log("incorrect");
         res.render('authentication');
       }
     }
