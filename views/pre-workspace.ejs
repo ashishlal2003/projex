@@ -36,6 +36,7 @@
            
                 <% if (projects.length > 0) { %>
                   <% projects.forEach(project => { %>
+                    <a href="/workspace/<%= project._id %>">
                     <div class="projectdiv"><%= project.name %></div>
                   <% }); %>
 

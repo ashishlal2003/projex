@@ -11,6 +11,6 @@ const router = express.Router();
 
 //GET the landing page
 
-router.get('/workspace',isAuth,getWorkspace);
+router.get('/workspace/:projectId',isAuth,getWorkspace);
 
 module.exports = router;
