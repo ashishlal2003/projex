@@ -15,11 +15,24 @@
 // });
 
 const session = require('express-session');
+const Project = require('../models/project');
 
-//GET the landing page
+//GET the page
 const getWorkspace = async (req,res) => {
     const user = req.session.user;
-    res.render('workspace',{ user });
+    const projectId = req.params.projectId;
+  
+    try {
+      const project = await Project.findById(projectId);
+      if (!project) {
+        return res.status(404).send('Project not found');
+      }
+  
+      res.render('workspace', { user, project });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    }
 } 
 
 
