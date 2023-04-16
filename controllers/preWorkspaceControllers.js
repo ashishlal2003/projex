@@ -37,6 +37,7 @@ const createProj = async(req,res,next)=>{
   // console.log(projects);
 
   // Render the pre-workspace page with the user and projects data
+  res.redirect('/pre-workspace');
   res.render('pre-workspace', { user, projects });
 };
 module.exports = {
