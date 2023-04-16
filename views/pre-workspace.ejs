@@ -38,7 +38,9 @@
                   <% projects.forEach(project => { %>
                     <% i++ %>
                     <div class="projectdiv" onclick="location.href='/workspace/<%= project._id %>'">
-                        <div class="projectnamediv"><%= project.name %></div>
+                        <div class="projectnamediv">
+                            <div class="projectnametext"><%= project.name %></div>
+                        </div>
                     </div>
                   <% }); %>
 
