@@ -31,31 +31,38 @@
                 src="https://drive.google.com/uc?export=view&id=129D5AI1a6mZ9aiMaw7d-1DnlUhzaaQl0"
                 alt="Project Analysis">Project Analysis</button>
         <button id="drop_project_button">Drop Project</button>
-        <button id="createtask" onclick="create_task_form.style.display='flex'">Create task </button>
     </div>
 
-    <div id="taskdiv_id" class="taskdiv">
-        <p class="taskready">Task ready</p>
-        <p class="inprogress">In Progress</p>
-        <p class="needsreview">Needs Review</p>
-        <p class="done">Done</p>
+    <div class="task_div">
+    <p class="roadmap">Roadmap</p>
+    <button id="createtask">+ Create task </button>
 
-        <div class="cont_taskready"></div>
-        <div class="cont_inprogress">
-            <% for (let i = 0; i < tasks.length; i++) { %>     
-                <p class="task_name">
-                    
-                    <%= tasks[i].name %>
-                </p>
-               <% } %> 
-        </div>
-        <div class="cont_needsreview"></div>
-        <div class="cont_done"></div>
+    <p class="taskready">Task ready</p>
+    <p class="inprogress">In Progress</p>
+    <p class="needsreview">Needs Review</p>
+    <p class="done">Done</p>
+
+    <div class="cont_taskready"></div>
+    <div class="cont_inprogress">
+        <% for (let i = 0; i < tasks.length; i++) { %>     
+            <!-- <p class="task_name">
+                
+                <%= tasks[i].name %>
+            </p> -->
+            <div class="task_ejs_div"></div>
+            <% } %> 
+    </div>
+    <div class="cont_needsreview"></div>
+    <div class="cont_done"></div>
+
     </div>
 
     <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
-        <input name="taskName" type="text" id="title_task" placeholder="New Task">
-        <input name="taskDeadline" date="date" id="due_task" placeholder="Due Date">
+        <input name="taskName" type="none" id="title_task" placeholder="New Task">
+        <p class="created_by">Created By</p>
+        <div id="creator_of_task">Aditya Dev</div>
+        <p class="deadline">Deadline</p>
+        <input name="taskDeadline" type="date" id="due_task">
         <button id="create_kar_task">Create Task</button>
     </form>
 
@@ -107,7 +114,7 @@
 
         window.onload = function () {
             add_mem.style.display = "none"
-            taskdiv_id.style.display = "flex"
+            // taskdiv_id.style.display = "none"
             // collect.style.display = "none"
             delete_window.style.display = "none"
             create_task_form.style.display="none"
@@ -196,7 +203,14 @@
                 return false;
             }
         }
-
+        let createtask=document.getElementById('createtask')
+        createtask.addEventListener("click", 
+        function()
+        {
+            create_task_form.style.display="flex"
+            back.style.background = "rgba(66, 66, 139, 0.307)"
+            back.style.zIndex = 1
+        })
 
     </script>
 </body>
