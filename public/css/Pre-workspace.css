@@ -482,14 +482,15 @@
 }
 #container
 {
-    height:63%;
-    width:82.5%;
+    height:auto;
+    width:auto;
     position: absolute;
     /* background-color: red; */
     top:35%;
-    left:17%;
+    left:19%;
     display: flex;
     flex-wrap: wrap;
+    flex-direction: row;
 }
 .projectdiv
 {
@@ -499,6 +500,7 @@
     border-radius: 5px;
     margin-left: 2%;
     margin-right: 2%;
+    margin-bottom: 4%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -514,7 +516,7 @@
     border-bottom-right-radius: 5px;
     vertical-align:text-bottom;
     position: relative;
-    top: 80px;
+    top: 68px;
 }
 .projectdiv:hover
 {
