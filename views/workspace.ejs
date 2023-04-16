@@ -31,23 +31,33 @@
                 src="https://drive.google.com/uc?export=view&id=129D5AI1a6mZ9aiMaw7d-1DnlUhzaaQl0"
                 alt="Project Analysis">Project Analysis</button>
         <button id="drop_project_button">Drop Project</button>
+        <button id="createtask" onclick="create_task_form.style.display='flex'">Create task </button>
     </div>
 
     <div id="taskdiv_id" class="taskdiv">
-        <p class="todo">Roadmap</p>
-        <button id="add_sprint">Add Sprint</button>
-        <hr class="taskline">
-        <div class="sprint_head_container">
-            <% i=0 %>
-            <% projects.forEach(project => { %>
-                <% i++ %>
-                <div class="sprint_back">
-                    <div class="sprint">Sprint</div>
-                    <p id="add_new">+ New</p>
-                </div>
-            <% }); %>
+        <p class="taskready">Task ready</p>
+        <p class="inprogress">In Progress</p>
+        <p class="needsreview">Needs Review</p>
+        <p class="done">Done</p>
+
+        <div class="cont_taskready"></div>
+        <div class="cont_inprogress">
+            <% for (let i = 0; i < tasks.length; i++) { %>     
+                <p class="task_name">
+                    
+                    <%= tasks[i].name %>
+                </p>
+               <% } %> 
         </div>
+        <div class="cont_needsreview"></div>
+        <div class="cont_done"></div>
     </div>
+
+    <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
+        <input name="taskName" type="text" id="title_task" placeholder="New Task">
+        <input name="taskDeadline" date="date" id="due_task" placeholder="Due Date">
+        <button id="create_kar_task">Create Task</button>
+    </form>
 
     <div id="add_mem">
         <input type="email" id="email" placeholder="Email of member">
@@ -93,10 +103,14 @@
         let task_management = document.getElementById('task_management')
         let delete_window = document.getElementById('delete_window')
 
+        let create_task_form = document.getElementById('create_task_form')
+
         window.onload = function () {
             add_mem.style.display = "none"
-            taskdiv_id.style.display = "none"
+            taskdiv_id.style.display = "flex"
+            // collect.style.display = "none"
             delete_window.style.display = "none"
+            create_task_form.style.display="none"
         }
 
         addmember.addEventListener("click", function () {
@@ -182,6 +196,7 @@
                 return false;
             }
         }
+
 
     </script>
 </body>

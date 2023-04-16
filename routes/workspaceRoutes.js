@@ -1,7 +1,8 @@
 const express = require('express');
 const{
     getWorkspace,
-    deleteProject
+    deleteProject,
+    createTask
 } = require('../controllers/workspaceControllers');
 
 const {
@@ -15,5 +16,7 @@ const router = express.Router();
 router.get('/workspace/:projectId',isAuth,getWorkspace);
 
 router.post('/workspace/:projectId/delete', isAuth, deleteProject);
+
+router.post('/workspace/:projectId/create-task',isAuth,createTask);
 
 module.exports = router;
