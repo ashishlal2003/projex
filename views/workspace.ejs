@@ -10,6 +10,7 @@
 <style>
 </style>
 <body>
+    <div id = "loader"><div class = "spinner"></div></div>
     <div id="back"></div>
     <div id="left" class="left">
         <p id="project_name"><%= project.name %></p>
@@ -61,12 +62,18 @@
         let members=document.getElementById('membertask')
         let taskdiv_id=document.getElementById('taskdiv_id')
         let collect=document.getElementById('collection_member_task')
+        let load = document.getElementById('loader')
 
         window.onload=function()
         {
+            document.getElementById("loader").style.display = "none";
             add_mem.style.display="none"
             taskdiv_id.style.display="none"
             collect.style.display="none"
+        }
+
+        window.unload = function(){
+            document.getElementById("loader").style.display = "block";
         }
 
         addmember.addEventListener("click", function()

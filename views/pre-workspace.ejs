@@ -8,6 +8,9 @@
 </head>
 <link rel="stylesheet" href="/css/Pre-workspace.css">
 <body>
+    <div id = "loader">
+        <div class = "spinner"></div>
+    </div>
     <div class="left">
         <div class="userdiv">
             <img id="user" src="https://drive.google.com/uc?id=1HtUgVdz9uDcLpuyQZgz5Sb_s95AFNP65" alt="">
@@ -118,16 +121,22 @@
         let create=document.getElementById('create')
         let editv=document.getElementById('editv')
         let save=document.getElementById('save')
-
+        let load = document.getElementById('loader')
 
         window.onload=function()
         {
+            document.getElementById("loader").style.display = "none";
+            // loading.style.display = "none"
             diag.style.display="none"
             edituser.style.display="none"
             viewuser.style.display="none"
             creatediv.style.display="flex"
         }
 
+        window.unload = function(){
+            document.getElementById("loader").style.display = "block";
+            // loading.style.display = "block"
+        }
         bookmarks.addEventListener("mouseover",
         function()
         {
