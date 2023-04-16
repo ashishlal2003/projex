@@ -34,7 +34,19 @@
     </div>
 
     <div id="taskdiv_id" class="taskdiv">
-
+        <p class="todo">Roadmap</p>
+        <button id="add_sprint">Add Sprint</button>
+        <hr class="taskline">
+        <div class="sprint_head_container">
+            <% i=0 %>
+            <% projects.forEach(project => { %>
+                <% i++ %>
+                <div class="sprint_back">
+                    <div class="sprint">Sprint</div>
+                    <p id="add_new">+ New</p>
+                </div>
+            <% }); %>
+        </div>
     </div>
 
     <div id="add_mem">
@@ -63,16 +75,14 @@
         <div class="container" id="container"></div>
     </div>
 
-    <div id="delete_window">
-        <form action="/workspace/<%= project._id %>/delete" method="POST" onsubmit="return confirmDelete()">
+    <form id="delete_window" action="/workspace/<%= project._id %>/delete" method="POST" onsubmit="return confirmDelete()">
             <h class="drop_project">Drop Project</h>
             <p id="type_to_delete">Type "<%= project.name %>" to drop the project</p>
             <input name="projectName" type="text" id="input_type_to_delete" placeholder="Type Here" required
                 onkeyup="confirmDelete()">
             <button id="cancel_delete">Cancel</button>
             <button id="drop_project">Drop Project</button>
-        </form>
-    </div>
+    </form>
 
     <script>
         let back = document.getElementById('back')
@@ -81,16 +91,11 @@
         let add_mem = document.getElementById('add_mem')
         let addmember = document.getElementById('addmember')
         let task_management = document.getElementById('task_management')
-
-        let members = document.getElementById('membertask')
-        let taskdiv_id = document.getElementById('taskdiv_id')
-        let collect = document.getElementById('collection_member_task')
         let delete_window = document.getElementById('delete_window')
 
         window.onload = function () {
             add_mem.style.display = "none"
             taskdiv_id.style.display = "none"
-            collect.style.display = "none"
             delete_window.style.display = "none"
         }
 
@@ -137,41 +142,28 @@
                     mem_new_role_div.appendChild(mem_new_role)
                     let mem_new_rolevalue = document.getElementById('role').value
                     mem_new_role.innerHTML = mem_new_rolevalue
-
-                    const mem_task = document.createElement('div')
-                    mem_task.classList.add('mem_task')
-                    mem_task.innerHTML = mem_new_mailadress
-                    collection_member_task.appendChild(mem_task)
-
-                    mem_task.addEventListener("click",
-                        function () {
-                            container_task.appendChild(mem_task)
-                        })
                 }
                 i++
             })
 
         task_management.addEventListener("click",
-            function () {
-                taskdiv_id.style.display = "flex"
-            })
+        function ()
+        {
+            taskdiv_id.style.display = "flex"
+        })
 
-        members.addEventListener("click",
-            function () {
-                collect.style.display = "flex"
-            })
 
         let drop = document.getElementById('drop_project_button')
         drop.addEventListener("click",
-            function () {
-                delete_window.style.display = "flex"
-            })
+        function () {
+            delete_window.style.display = "flex"
+        })
 
         let cancel = document.getElementById('cancel_delete')
         cancel.addEventListener("click",
-            function () {
-                delete_window.style.display = "none"
-            })
+        function () {
+            delete_window.style.display = "none"
+        })
 
         function confirmDelete() {
             const projectName = '<%= project.name %>';
@@ -179,10 +171,14 @@
             const confirmButton = document.getElementById('drop_project');
             if (projectName === inputName) {
                 confirmButton.disabled = false;
+                confirmButton.style.color="grey"
+                confirmButton.style.borderColor="grey"
                 return true;
             } else {
                 // alert("The name doesn't match. Please try again.");
                 confirmButton.disabled = true;
+                confirmButton.style.color="rgb(199, 199, 199)"
+                confirmButton.style.borderColor="rgb(199, 199, 199)"
                 return false;
             }
         }

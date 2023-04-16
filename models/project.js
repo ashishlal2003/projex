@@ -27,4 +27,8 @@ const projectSchema = new Schema({
     }
 });
 
+projectSchema.methods.delete = async function(){
+    await this.model('Project').deleteOne({_id:this._id});
+}
+
 module.exports = mongoose.model('Project', projectSchema);
