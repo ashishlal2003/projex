@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects</title>
 </head>
-<link rel="stylesheet" href="/css/pre-workspace.css">
+<link rel="stylesheet" href="/css/Pre-workspace.css">
 <body>
     <div class="left">
         <div class="userdiv">
@@ -33,11 +33,13 @@
         <p id="createhead1">Create your projects here</p>
 
         <div id="container">
-           
+                <% i=0 %>
                 <% if (projects.length > 0) { %>
                   <% projects.forEach(project => { %>
-                    <a href="/workspace/<%= project._id %>">
-                    <div class="projectdiv"><%= project.name %></div>
+                    <% i++ %>
+                    <div class="projectdiv" onclick="location.href='/workspace/<%= project._id %>'">
+                        <div class="projectnamediv"><%= project.name %></div>
+                    </div>
                   <% }); %>
 
                 <% } else { %>
@@ -48,9 +50,10 @@
         <form method="post" action="/create-project">
         <input name="projectName" type="text" class="proname" id="proname" placeholder="Project name" required>
         <button id="create" class="create">Create</button>
-    </form>
+        </form>
     </div>
     
+    <% console.log(i) %>
         
           
       
