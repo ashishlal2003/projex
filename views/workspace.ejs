@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,31 +10,39 @@
 </head>
 <style>
 </style>
+
 <body>
     <div id="back"></div>
     <div id="left" class="left">
-        <p id="project_name"><%= project.name %></p>
+        <p id="project_name">
+            <%= project.name %>
+        </p>
         <button class="features" id="addmember">Add Member</button>
-        <button class="features" id="task_management"><img class="logo_but" src="https://drive.google.com/uc?export=view&id=1G7SoF3dSO8KJaih2gd-QEQK48ZBjnyIB" alt="Task Management">Task Management</button>
-<button class="features" id="file_share"><img class="logo_but" src="https://drive.google.com/uc?export=view&id=10ceCs2hQlL0FLKx2Dbbq3WtS3V89jtN0" alt="File Sharing">File Sharing</button>
-<button class="features" id="communication"><img class="logo_but" src="https://drive.google.com/uc?export=view&id=12WtZqaQCqC0bRVUJaqerilHqOwVdXwvG" alt="Communication">Communication</button>
-<button class="features" id="project_analysis"><img class="logo_but" src="https://drive.google.com/uc?export=view&id=129D5AI1a6mZ9aiMaw7d-1DnlUhzaaQl0" alt="Project Analysis">Project Analysis</button>
-
+        <button class="features" id="task_management"><img class="logo_but"
+                src="https://drive.google.com/uc?export=view&id=1G7SoF3dSO8KJaih2gd-QEQK48ZBjnyIB"
+                alt="Task Management">Task Management</button>
+        <button class="features" id="file_share"><img class="logo_but"
+                src="https://drive.google.com/uc?export=view&id=10ceCs2hQlL0FLKx2Dbbq3WtS3V89jtN0"
+                alt="File Sharing">File Sharing</button>
+        <button class="features" id="communication"><img class="logo_but"
+                src="https://drive.google.com/uc?export=view&id=12WtZqaQCqC0bRVUJaqerilHqOwVdXwvG"
+                alt="Communication">Communication</button>
+        <button class="features" id="project_analysis"><img class="logo_but"
+                src="https://drive.google.com/uc?export=view&id=129D5AI1a6mZ9aiMaw7d-1DnlUhzaaQl0"
+                alt="Project Analysis">Project Analysis</button>
     </div>
 
     <div id="taskdiv_id" class="taskdiv">
-        <button id="membertask">members</button>
-        <div id="container_task"></div>
+        
     </div>
-    <div id="collection_member_task"></div>
 
     <div id="add_mem">
         <input type="email" id="email" placeholder="Email of member">
-<img src="https://drive.google.com/uc?export=view&id=1JGZA6uKCjA4XAjP3tJKkxImYAePwqlgO" alt="" id="email_img">
-<input type="text" id="role" placeholder="Role : ex. Frontend Developer">
-<img src="https://drive.google.com/uc?export=view&id=19wNPxYbRnEjfeYdWSWkaen7tB7zANsMg" alt="" id="role_img">
-<button id="invite">Invite</button>
-<img src="https://drive.google.com/uc?export=view&id=1ljAvSBTtWC5vIt8zQjTu_vZVDAaZlbvs" alt="" id="close">
+        <img src="https://drive.google.com/uc?export=view&id=1JGZA6uKCjA4XAjP3tJKkxImYAePwqlgO" alt="" id="email_img">
+        <input type="text" id="role" placeholder="Role : ex. Frontend Developer">
+        <img src="https://drive.google.com/uc?export=view&id=19wNPxYbRnEjfeYdWSWkaen7tB7zANsMg" alt="" id="role_img">
+        <button id="invite">Invite</button>
+        <img src="https://drive.google.com/uc?export=view&id=1ljAvSBTtWC5vIt8zQjTu_vZVDAaZlbvs" alt="" id="close">
 
 
         <hr id="tophr">
@@ -42,8 +51,12 @@
         <hr id="bottomhr">
 
         <div id="mem_owner">
-            <p id="owner_name_add_mem"> <%= user.name %> </p>
-            <p id="owner_email_add_mem"><%= user.username %></p>
+            <p id="owner_name_add_mem">
+                <%= user.name %>
+            </p>
+            <p id="owner_email_add_mem">
+                <%= user.username %>
+            </p>
             <p id="owner_role_add_mem"> Creator </p>
         </div>
         <div class="container" id="container"></div>
@@ -51,99 +64,71 @@
 
 
     <script>
-        let back=document.getElementById('back')
-        let close=document.getElementById('close')
-        let invite=document.getElementById('invite')
-        let add_mem=document.getElementById('add_mem')
-        let addmember=document.getElementById('addmember')
-        let task_management=document.getElementById('task_management')
+        let back = document.getElementById('back')
+        let close = document.getElementById('close')
+        let invite = document.getElementById('invite')
+        let add_mem = document.getElementById('add_mem')
+        let addmember = document.getElementById('addmember')
+        let task_management = document.getElementById('task_management')
 
-        let members=document.getElementById('membertask')
-        let taskdiv_id=document.getElementById('taskdiv_id')
-        let collect=document.getElementById('collection_member_task')
-
-        window.onload=function()
-        {
-            add_mem.style.display="none"
-            taskdiv_id.style.display="none"
-            collect.style.display="none"
+        window.onload = function () {
+            add_mem.style.display = "none"
+            taskdiv_id.style.display = "none"
         }
 
-        addmember.addEventListener("click", function()
-        {
-            add_mem.style.display="inline"
-            back.style.background="rgba(66, 66, 139, 0.307)"
-            back.style.zIndex=1
+        addmember.addEventListener("click", function () {
+            add_mem.style.display = "inline"
+            back.style.background = "rgba(66, 66, 139, 0.307)"
+            back.style.zIndex = 1
         })
 
-        close.addEventListener("click", function()
-        {
-            add_mem.style.display="none"
-            back.style.background="none"
-            back.style.zIndex=0
+        close.addEventListener("click", function () {
+            add_mem.style.display = "none"
+            back.style.background = "none"
+            back.style.zIndex = 0
         })
-        let i=1
+        let i = 1
 
-        invite.addEventListener("click", 
-        function()
-        {
-            if(i>=5)
-            {
-                alert("you cannot add more members")
-            }
-            else
-            {
-                const mem_new=document.createElement("div")
-                mem_new.classList.add("mem_new")
-                container.appendChild(mem_new)
+        invite.addEventListener("click",
+            function () {
+                if (i >= 5) {
+                    alert("you cannot add more members")
+                }
+                else {
+                    const mem_new = document.createElement("div")
+                    mem_new.classList.add("mem_new")
+                    container.appendChild(mem_new)
 
-                const mem_new_name=document.createElement('p')
-                mem_new_name.classList.add('mem_new_name')
-                mem_new.appendChild(mem_new_name)
-                mem_new_name.innerHTML="Alexa Grace"
+                    const mem_new_name = document.createElement('p')
+                    mem_new_name.classList.add('mem_new_name')
+                    mem_new.appendChild(mem_new_name)
+                    mem_new_name.innerHTML = "Alexa Grace"
 
-                const mem_new_email=document.createElement('p')
-                mem_new_email.classList.add('mem_new_email')
-                mem_new.appendChild(mem_new_email)
-                let mem_new_mailadress=document.getElementById('email').value
-                mem_new_email.innerHTML=mem_new_mailadress
+                    const mem_new_email = document.createElement('p')
+                    mem_new_email.classList.add('mem_new_email')
+                    mem_new.appendChild(mem_new_email)
+                    let mem_new_mailadress = document.getElementById('email').value
+                    mem_new_email.innerHTML = mem_new_mailadress
 
-                const mem_new_role_div=document.createElement('div')
-                mem_new_role_div.classList.add('mem_new_role_div')
-                mem_new.appendChild(mem_new_role_div)
+                    const mem_new_role_div = document.createElement('div')
+                    mem_new_role_div.classList.add('mem_new_role_div')
+                    mem_new.appendChild(mem_new_role_div)
 
-                const mem_new_role=document.createElement('p')
-                mem_new_role.classList.add('mem_new_role')
-                mem_new_role_div.appendChild(mem_new_role)
-                let mem_new_rolevalue=document.getElementById('role').value
-                mem_new_role.innerHTML=mem_new_rolevalue
+                    const mem_new_role = document.createElement('p')
+                    mem_new_role.classList.add('mem_new_role')
+                    mem_new_role_div.appendChild(mem_new_role)
+                    let mem_new_rolevalue = document.getElementById('role').value
+                    mem_new_role.innerHTML = mem_new_rolevalue
+                }
+                i++
+            })
 
-                const mem_task=document.createElement('div')
-                mem_task.classList.add('mem_task')
-                mem_task.innerHTML=mem_new_mailadress
-                collection_member_task.appendChild(mem_task)
-
-                mem_task.addEventListener("click",
-                function()
-                {
-                    container_task.appendChild(mem_task)
-                })
-            }
-            i++
-        })
-
-        task_management.addEventListener("click", 
-        function()
-        {
-            taskdiv_id.style.display="flex"
-        })
-
-        members.addEventListener("click", 
-        function()
-        {
-            collect.style.display="flex"
-        })
+        task_management.addEventListener("click",
+            function () {
+                taskdiv_id.style.display = "flex"
+            })
 
     </script>
 </body>
+
 </html>
