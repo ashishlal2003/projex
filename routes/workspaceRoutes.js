@@ -1,6 +1,7 @@
 const express = require('express');
 const{
-    getWorkspace
+    getWorkspace,
+    deleteProject
 } = require('../controllers/workspaceControllers');
 
 const {
@@ -12,5 +13,7 @@ const router = express.Router();
 //GET the landing page
 
 router.get('/workspace/:projectId',isAuth,getWorkspace);
+
+router.post('/workspace/:projectId/delete', isAuth, deleteProject);
 
 module.exports = router;
