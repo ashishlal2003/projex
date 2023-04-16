@@ -30,6 +30,7 @@
         <button class="features" id="project_analysis"><img class="logo_but"
                 src="https://drive.google.com/uc?export=view&id=129D5AI1a6mZ9aiMaw7d-1DnlUhzaaQl0"
                 alt="Project Analysis">Project Analysis</button>
+        <button id="drop_project_button">Drop Project</button>
     </div>
 
     <div id="taskdiv_id" class="taskdiv">
@@ -62,18 +63,34 @@
         <div class="container" id="container"></div>
     </div>
 
+    <div id="delete_window">
+        <form action="/workspace/<%= project._id %>/delete" method="POST" onsubmit="return confirmDelete()">
+        <h class="drop_project">Drop Project</h>
+        <p id="type_to_delete">Type "<%= project.name %>" to drop the project</p>
+        <input name="projectName" type="text" id="input_type_to_delete" placeholder="Type Here" required onkeyup="confirmDelete()">
+        <button id="cancel_delete">Cancel</button>
+        <button id="drop_project">Drop Project</button>
+        </form>
+    </div>
 
     <script>
-        let back = document.getElementById('back')
+        let back = document.getElementById('back')  
         let close = document.getElementById('close')
         let invite = document.getElementById('invite')
         let add_mem = document.getElementById('add_mem')
         let addmember = document.getElementById('addmember')
         let task_management = document.getElementById('task_management')
 
+        let members = document.getElementById('membertask')
+        let taskdiv_id = document.getElementById('taskdiv_id')
+        let collect = document.getElementById('collection_member_task')
+        let delete_window=document.getElementById('delete_window')
+
         window.onload = function () {
             add_mem.style.display = "none"
             taskdiv_id.style.display = "none"
+            collect.style.display = "none"
+            delete_window.style.display="none"
         }
 
         addmember.addEventListener("click", function () {
@@ -119,6 +136,16 @@
                     mem_new_role_div.appendChild(mem_new_role)
                     let mem_new_rolevalue = document.getElementById('role').value
                     mem_new_role.innerHTML = mem_new_rolevalue
+
+                    const mem_task = document.createElement('div')
+                    mem_task.classList.add('mem_task')
+                    mem_task.innerHTML = mem_new_mailadress
+                    collection_member_task.appendChild(mem_task)
+
+                    mem_task.addEventListener("click",
+                        function () {
+                            container_task.appendChild(mem_task)
+                        })
                 }
                 i++
             })
@@ -127,6 +154,39 @@
             function () {
                 taskdiv_id.style.display = "flex"
             })
+
+        members.addEventListener("click",
+            function () {
+                collect.style.display = "flex"
+            })
+
+        let drop=document.getElementById('drop_project_button')
+        drop.addEventListener("click",
+        function()
+        {
+            delete_window.style.display="flex"
+        })
+
+        let cancel=document.getElementById('cancel_delete')
+        cancel.addEventListener("click",
+        function()
+        {
+            delete_window.style.display="none"
+        })
+
+        function confirmDelete() {
+  const projectName = '<%= project.name %>';
+  const inputName = document.getElementById('input_type_to_delete').value;
+  const confirmButton = document.getElementById('drop_project');
+  if (projectName === inputName) {
+    confirmButton.disabled = false;
+    return true;
+  } else {
+    // alert("The name doesn't match. Please try again.");
+    confirmButton.disabled = true;
+    return false;
+  }
+}
 
     </script>
 </body>
