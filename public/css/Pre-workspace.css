@@ -498,9 +498,9 @@
     width: 260px;
     border: 1.7px solid rgb(185, 185, 185);
     border-radius: 5px;
-    margin-left: 2%;
-    margin-right: 2%;
-    margin-bottom: 4%;
+    margin-left: 1.5%;
+    margin-right: 1.5%;
+    margin-bottom: 3%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -516,7 +516,7 @@
     border-bottom-right-radius: 5px;
     vertical-align:text-bottom;
     position: relative;
-    top: 68px;
+    top: 67.3px;
 }
 .projectdiv:hover
 {
@@ -524,7 +524,7 @@
 }
 .projectnametext
 {
-    position: absolute;
+    position: relative;
     top:6px;
     left: 15px;
     font-size: 1.2rem;

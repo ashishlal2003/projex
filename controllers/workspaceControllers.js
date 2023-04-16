@@ -16,6 +16,7 @@
 
 const session = require('express-session');
 const Project = require('../models/project');
+const bodyParser = require('body-parser');
 
 //GET the page
 const getWorkspace = async (req,res) => {
@@ -35,7 +36,37 @@ const getWorkspace = async (req,res) => {
     }
 } 
 
+// Add this to the workspaceController.js file
+const deleteProject = async (req, res) => {
+    const user = req.session.user;
+    const projectId = req.params.projectId;
+    const projectName = req.body.projectName;
+  
+    try {
+      const project = await Project.findById(projectId);
+      if (!project) {
+        return res.status(404).send('Project not found');
+      }
+  
+      // Check if the project name matches
+      if (project.name !== projectName) {
+        console.log(project.name);
+        console.log(projectName);
+        return res.status(400).send('Project name does not match');
+      }
+  
+      // Delete the project
+      await project.delete();
+  
+      res.redirect('/pre-workspace');
+    } catch (err) {
+      console.error(err);
+      res.status(500).send('Internal Server Error');
+    }
+  };
+  
 
 module.exports = {
-    getWorkspace
+    getWorkspace,
+    deleteProject
 };
