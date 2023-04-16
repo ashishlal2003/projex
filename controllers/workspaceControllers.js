@@ -1,22 +1,7 @@
-// const http = require('http');
-// const url = require('url');
-// const querystring = require('querystring');
-
-// const server = http.createServer((req, res) => {
-//   // Get the URL parameters from the request object
-//   const { query } = url.parse(req.url);
-//   const params = querystring.parse(query);
-
-//   // Get the project name from the 'project' parameter
-//   const projectName = params.project;
-
-//   // Render the workspace.ejs template with the project name variable
-//   res.render('workspace', { projectName: projectName });
-// });
-
 const session = require('express-session');
 const Project = require('../models/project');
 const bodyParser = require('body-parser');
+const Task  = require('../models/taskMan');
 
 //GET the page
 const getWorkspace = async (req,res) => {
@@ -28,8 +13,9 @@ const getWorkspace = async (req,res) => {
       if (!project) {
         return res.status(404).send('Project not found');
       }
-  
-      res.render('workspace', { user, project });
+      const task = await Task.find({ projectId: projectId})
+      res.render('workspace', { user, project, task });
+
     } catch (err) {
       console.error(err);
       res.status(500).send('Internal Server Error');
@@ -50,8 +36,8 @@ const deleteProject = async (req, res) => {
   
       // Check if the project name matches
       if (project.name !== projectName) {
-        console.log(project.name);
-        console.log(projectName);
+        // console.log(project.name);
+        // console.log(projectName);
         return res.status(400).send('Project name does not match');
       }
   
@@ -64,9 +50,34 @@ const deleteProject = async (req, res) => {
       res.status(500).send('Internal Server Error');
     }
   };
+
+ 
+ const createTask = async (req, res) => {
+    const user = req.session.user;
+    const projectId = req.params.projectId;
+    const projectName = req.body.projectName;
+    const taskName = req.body.taskName;
+    const taskDeadline = req.body.taskDeadline;
+    // console.log("99");
+    const task = new Task({
+        name: req.body.taskName,
+        createdBy: req.session.user._id,
+        deadline: req.body.taskDeadline,
+        projectId: req.params.projectId
+    });
+// console.log("100");
+    await task.save();
+
+    const tasks = await Task.find({ createdBy: user._id });
+    const project = await Project.findById(projectId);
+    // console.log(project);
+
+    res.render('workspace', { user, tasks, project });
+}; 
   
 
 module.exports = {
     getWorkspace,
-    deleteProject
+    deleteProject,
+    createTask
 };

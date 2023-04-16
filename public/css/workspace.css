@@ -401,3 +401,113 @@
     top:72%;
     left:76%;
 }
+.taskdiv
+{
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    width: 83%;
+    /* background-color: red; */
+    position: absolute;
+    top:0%;
+    left:21%
+}
+.taskready
+{
+    font-size: 2rem;
+    color:grey;
+    position: absolute;
+    top:2%;
+    left:0%;
+}
+.inprogress
+{
+    font-size: 2rem;
+    color:grey;
+    position: absolute;
+    top:2%;
+    left:25%;
+}
+.needsreview
+{
+    font-size: 2rem;
+    color:grey;
+    position: absolute;
+    top:2%;
+    left:50%;
+}
+.done
+{
+    font-size: 2rem;
+    color:grey;
+    position: absolute;
+    top:2%;
+    left:75%;
+}
+.cont_taskready
+{
+    height:90%;
+    width:260px;
+    /* background-color: red; */
+    position: absolute;
+    top:10%;
+}
+.cont_inprogress
+{
+    height:90%;
+    width:260px;
+    /* background-color: red; */
+    position: absolute;
+    top:10%;
+    left:25%;
+}
+.cont_needsreview
+{
+    height:90%;
+    width:260px;
+    /* background-color: red; */
+    position: absolute;
+    top:10%;
+    left:50%
+}
+.cont_done
+{
+    height:90%;
+    width:260px;
+    /* background-color: red; */
+    position: absolute;
+    top:10%;
+    left:75%;
+}
+#createtask
+{
+    cursor:pointer;
+    margin-bottom: 7%;
+    font-weight: 700;
+    background-color: transparent;
+    color: rgb(126, 123, 123);
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.9rem;
+    height: 30px;
+    width: 55%;
+    border:solid 2px rgb(126, 123, 123);
+    border-radius: 5px;
+    position: relative;
+    top:3%;
+    left:4%;
+}
+#create_task_form
+{
+    height: 120px;
+    width: 200px;
+    /* background-color: red; */
+    position: absolute;
+    top:70%;
+    left:0%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border:solid 1px grey;
+}
