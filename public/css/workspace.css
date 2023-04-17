@@ -445,11 +445,11 @@
 }
 .cont_taskready
 {
-    height:90%;
+    height:auto;
     width:260px;
     /* background-color: red; */
     position: absolute;
-    top:30%;
+    top:27%;
     left:22%;
 }
 .cont_inprogress
@@ -458,25 +458,25 @@
     width:260px;
     /* background-color: red; */
     position: absolute;
-    top:30%;
+    top:27%;
     left:40%;
 }
 .cont_needsreview
 {
-    height:90%;
+    height:auto;
     width:260px;
     /* background-color: red; */
     position: absolute;
-    top:30%;
+    top:27%;
     left:58%
 }
 .cont_done
 {
-    height:90%;
+    height:auto;
     width:260px;
     /* background-color: red; */
     position: absolute;
-    top:30%;
+    top:27%;
     left:76%;
 }
 .roadmap
@@ -496,13 +496,18 @@
     height:30px;
     width:140px;
     border:none;
+    border-radius: 7px;
     font-size: 1.1rem;
     font-weight: 600;
     background-color: transparent;
     color: rgb(136, 136, 136);
     position: absolute;
     top:12%;
-    left:20%;
+    left:21%;
+}
+#createtask:hover
+{
+    background-color: rgb(238, 238, 238);
 }
 #create_task_form
 {
@@ -523,11 +528,11 @@
 .task_ejs_div
 {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height:110px;
+    height:115px;
     width:250px;
     border:solid 2px rgb(223, 223, 223);
     border-radius: 5px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     box-shadow: rgba(0, 0, 0, 0.07) 0px 3px 3px 0px;
 }
 #create_task_form
@@ -661,12 +666,40 @@
     width: 90px;
     border:none;
     background-color: rgb(213, 238, 255);
-    color: red;
     border-radius: 15px;
     font-size: 0.9rem;
-    color: grey;
+    color: rgb(38, 118, 255);
     position: relative;
     top:-7%;
     left:35%;
     text-align: center;
+}
+#dropdown_taskready
+{
+    height: 25px;
+    width: 45%;
+    border:none;
+    background-color: rgb(255, 222, 254);
+    border-radius: 15px;
+    font-size: 0.86rem;
+    color: rgb(255, 71, 249);
+    position: relative;
+    top:0%;
+    left:5%;
+    text-align: center;
+}
+#dropdown_taskready:focus
+{
+    outline: none;
+}
+#dropdown_taskready option
+{
+    background-color: rgb(255, 222, 254);
+    color:  rgb(255, 71, 249);
+    border: none;
+}
+option:hover
+{
+    background-color: rgb(255, 71, 249);
+    color:  rgb(255, 222, 254);
 }
