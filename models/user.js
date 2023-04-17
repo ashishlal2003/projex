@@ -20,7 +20,7 @@ const userSchema = new Schema({
         required: true
     },
 
-    organization:{
+    organisation:{
         type:String,
         default: "NULL"
     },

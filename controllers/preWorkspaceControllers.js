@@ -1,6 +1,7 @@
 const Project = require('../models/project');
 const session = require('express-session');
 const bodyParser = require('body-parser');
+const User = require('../models/user');
 
 const getPre = async(req,res,next)=>{
   console.log("start"); 
@@ -40,8 +41,36 @@ const createProj = async(req,res,next)=>{
   res.redirect('/pre-workspace');
   res.render('pre-workspace', { user, projects });
 };
+
+const editProfile = async (req,res) => {
+  const user = req.session.user;
+  const name = req.body.name;
+  const organisation = req.body.organisation;
+  const address = req.body.address;
+  const city = req.body.city;
+  const state = req.body.state;
+  const country = req.body.country;
+
+  await User.updateOne({ _id: user._id }, {
+    name,
+    organisation,
+    address,
+    city,
+    state,
+    country
+  });
+
+  // After updating the user's details in the database, redirect the user to the pre-workspace page
+  res.redirect('/pre-workspace');
+};
+
+
+
+  
+
 module.exports = {
     getPre,
     postLogout,
-    createProj
+    createProj,
+    editProfile
 };

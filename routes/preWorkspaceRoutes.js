@@ -1,7 +1,7 @@
 const express = require('express');
 const Project = require('../models/project');
 const {
-    getPre, postLogout, createProj
+    getPre, postLogout, createProj, editProfile
 } = require('../controllers/preWorkspaceControllers');
 
 const {
@@ -26,5 +26,7 @@ router.get('/pre-workspace', isAuth, async (req, res) => {
 router.post('/logout',postLogout)
 
 router.post('/create-project',isAuth, createProj);
+
+router.post('/edit-profile', isAuth, editProfile);
 
 module.exports = router;
