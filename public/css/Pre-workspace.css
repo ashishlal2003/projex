@@ -70,6 +70,7 @@
     border-right: solid 2px rgb(239, 239, 239);
     position: absolute;
     top:0;
+    position: fixed;
     background-color: rgb(245, 245, 245);
 }
 #user
@@ -528,7 +529,8 @@
     top:6px;
     left: 15px;
     font-size: 1.2rem;
-    color: rgb(102, 102, 102);
+    font-weight: 600;
+    color: rgb(124, 124, 124);
     /* background-color: red; */
 }
 .bookmarkproject
@@ -554,8 +556,25 @@
 {
     height: 30px;
     width: 100px;
-    background-color: rgb(66, 66, 66);
-    color: white;
+    background-color: rgb(243, 243, 243);
+    color: rgb(97, 97, 97);
+    border:solid 2px rgb(91, 91, 91);
+    border-radius: 15px;
     position: absolute;
-    bottom: 5%;
+    left:5%;
+    bottom: 2%;
+    font-size: 1rem;
+    /* font-weight: 600; */
+    cursor: pointer;
+}
+#logout:hover
+{
+    background-color: rgb(91, 91, 91);
+    color: white;
+}
+#bookmark_img_div
+{
+    height: 25px;
+    opacity: 0.8;
+    position: relative;
 }

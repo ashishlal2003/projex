@@ -54,6 +54,11 @@
                 <p class="deadline_in"><%= tasks[i].createdAt %></p>
                 <p class="created_by_in">Created by</p>
                 <div id="creator_in"><%= user.name %></div>
+                <select id="dropdown_taskready">
+                    <option value="inprogress_opt">In Progress</option>
+                    <option value="needsreview_opt">Needs Review</option>
+                    <option value="done_opt">Done</option>
+                </select>
             </div>
             <% } %> 
     </div>
