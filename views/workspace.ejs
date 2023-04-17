@@ -51,7 +51,7 @@
             </p> -->
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
-                <p class="deadline_in"><%= tasks[i].createdAt.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
                 <p class="created_by_in">Created by</p>
                 <div id="creator_in"><%= user.name %></div>
                 <select id="dropdown_taskready">

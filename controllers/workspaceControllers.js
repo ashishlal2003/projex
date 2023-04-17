@@ -79,29 +79,10 @@ const deleteProject = async (req, res) => {
     res.render('workspace', { user, tasks, project });
 }; 
 
-const editProfile = async (req,res) => {
-  
-  const { name, organisation, address, city, state, country } = req.body;
-  const { id } = req.session.user;
-
-  try {
-    const user = await User.findByIdAndUpdate(
-      id,
-      { name, organisation, address, city, state, country },
-      { new: true }
-    );
-    req.session.user = user;
-    res.redirect('/pre-workspace');
-  } catch (error) {
-    console.error(error);
-    res.render('error', { error });
-  }
-};
   
 
 module.exports = {
     getWorkspace,
     deleteProject,
-    createTask,
-    editProfile
+    createTask
 };
