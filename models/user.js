@@ -20,19 +20,34 @@ const userSchema = new Schema({
         required: true
     },
 
-    // projects:[{
-    //     productId: {
-    //         type: Schema.Types.ObjectId,
-    //         ref: 'Product',
-    //         required: true
-    //     }
-    // }]
+    organization:{
+        type:String,
+        default: "NULL"
+    },
+
+    state:{
+        type: String,
+        default: "NULL"
+    },
+
+    address:{
+        type: String,
+        default: "NULL"
+    },
+
     phone_number: {
-        type: String
+        type: String,
+        default: "NULL"
     },
 
     country: {
-        type:String
+        type:String,
+        default: "NULL"
+    },
+
+    city:{
+        type: String,
+        default: "NULL"
     },
 
     role: {

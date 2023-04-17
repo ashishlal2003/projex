@@ -522,6 +522,7 @@
 }
 .task_ejs_div
 {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     height:110px;
     width:250px;
     border:solid 2px rgb(223, 223, 223);
@@ -628,4 +629,44 @@
     position: absolute;
     top:5%;
     right:5%;
+}
+.title_task_in
+{
+    font-size:0.9rem;
+    color: rgb(143, 143, 143);
+    font-weight: 600;
+    position: relative;
+    top:6%;
+    left:5%;
+}
+.deadline_in
+{
+    font-size: 0.9rem;
+    color: rgb(151, 151, 151);
+    position: relative;
+    top:8%;
+    left:5%;
+}
+.created_by_in
+{
+    font-size: 0.9rem;
+    color: rgb(151, 151, 151);
+    position: relative;
+    top:9%;
+    left:5%;
+}
+#creator_in
+{
+    height: 20px;
+    width: 90px;
+    border:none;
+    background-color: rgb(213, 238, 255);
+    color: red;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    color: grey;
+    position: relative;
+    top:-7%;
+    left:35%;
+    text-align: center;
 }

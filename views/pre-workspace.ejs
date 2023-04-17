@@ -63,10 +63,10 @@
 
         <input type="text" id="name" placeholder="Enter Your Name">
 
-        <label for="organization" class="butlabel" id="organizationlabel">Institute/Organization</label>
+        <label for="organization" class="butlabel" id="organizationlabel"><Institute/Organization></label>
         <input type="text" class="but" id="organization" placeholder="ex. Dragon Realstates">
 
-        <label for="adress" class="butlabel" id="adresslabel">Adress</label>
+        <label for="adress" class="butlabel" id="adresslabel">Address</label>
         <input type="text" class="but" id="adress" placeholder="ex. Dragon Realstates Park street, Block-A">
 
         <label for="city" class="butlabel" id="citylabel">City</label>
@@ -86,19 +86,19 @@
         <p id="namev"><%= user.name %></p>
 
         <p class="labelv" id="organizationlabelv">Institute/Organization</p>
-        <p class="butv" id="organizationv">IIIT Dharwad</p>
+        <p class="butv" id="organizationv"><%= user.organization %></p>
 
-        <p class="labelv" id="adresslabelv">Adress</p>
-        <p class="butv" id="adressv">IIIT Dharwad, Ittigatti road, near Sattur colony</p>
+        <p class="labelv" id="adresslabelv">Address</p>
+        <p class="butv" id="adressv"><%= user.address %></p>
 
         <p class="labelv" id="citylabelv">City</p>
-        <p class="butv" id="cityv">Dharwad</p>
+        <p class="butv" id="cityv"><%= user.city %></p>
 
         <p class="labelv" id="statelabelv">State</p>
-        <p class="butv" id="statev">Karnataka</p>
+        <p class="butv" id="statev"><%= user.state %></p>
 
         <p class="labelv" id="countrylabelv">Country</p>
-        <p class="butv" id="countryv">India</p>
+        <p class="butv" id="countryv"><%= user.country %></p>
 
         <button id="editv">Edit</button>
     </div>

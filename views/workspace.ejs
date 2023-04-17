@@ -50,7 +50,10 @@
                 <%= tasks[i].name %>
             </p> -->
             <div class="task_ejs_div">
-                p.title
+                <p class="title_task_in"><%= tasks[i].name %></p>
+                <p class="deadline_in"><%= tasks[i].createdAt %></p>
+                <p class="created_by_in">Created by</p>
+                <div id="creator_in"><%= user.name %></div>
             </div>
             <% } %> 
     </div>
@@ -62,7 +65,7 @@
     <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
         <input name="taskName" type="none" id="title_task" placeholder="New Task">
         <p class="created_by">Created By</p>
-        <div id="creator_of_task">Aditya Dev</div>
+        <div id="creator_of_task"><%= user.name %></div>
         <p class="deadline">Deadline</p>
         <input name="taskDeadline" type="date" id="due_task">
         <button id="create_kar_task">Create Task</button>
