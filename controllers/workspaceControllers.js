@@ -13,8 +13,8 @@ const getWorkspace = async (req,res) => {
       if (!project) {
         return res.status(404).send('Project not found');
       }
-      const task = await Task.find({ projectId: projectId})
-      res.render('workspace', { user, project, task });
+      const tasks = await Task.find({ projectId: projectId})
+      res.render('workspace', { user, project, tasks });
 
     } catch (err) {
       console.error(err);
