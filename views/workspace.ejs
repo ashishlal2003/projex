@@ -58,7 +58,7 @@
                         <option value="needsreview_opt">Needs Review</option>
                         <option value="done_opt">Done</option>
                     </select>
-                    <button type="submit">Update Status</button>
+                    <button id="save_status" type="submit">Save</button>
                 </form>
             </div>
             <% } %>
@@ -73,12 +73,12 @@
                 <p class="created_by_in">Created by</p>
                 <div id="creator_in"><%= user.name %></div>
                 <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
-                    <select name="status" id="dropdown_taskready">
+                    <select name="status" id="dropdown_inprogress">
                         <option value="inprogress_opt">In Progress</option>
                         <option value="needsreview_opt">Needs Review</option>
                         <option value="done_opt">Done</option>
                     </select>
-                    <button type="submit">Update Status</button>
+                    <button id="save_status" type="submit">Save</button>
                 </form>
             </div>
             <% } %>
@@ -93,12 +93,12 @@
                 <p class="created_by_in">Created by</p>
                 <div id="creator_in"><%= user.name %></div>
                 <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
-                    <select name="status" id="dropdown_taskready">
+                    <select name="status" id="dropdown_needsreview">
                         <option value="needsreview_opt">Needs Review</option>
                         <option value="inprogress_opt">In Progress</option>
                         <option value="done_opt">Done</option>
                     </select>
-                    <button type="submit">Update Status</button>
+                    <button id="save_status" type="submit">Save</button>
                 </form>
             </div>
             <% } %>
@@ -113,18 +113,19 @@
                 <p class="created_by_in">Created by</p>
                 <div id="creator_in"><%= user.name %></div>
                 <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
-                    <select name="status" id="dropdown_taskready">
+                    <select name="status" id="dropdown_done">
                         <option value="done_opt">Done</option>
                         <option value="needsreview_opt">Needs Review</option>
                     </select>
-                    <button type="submit">Update Status</button>
+                    <button id="save_status" type="submit">Save</button>
                 </form>
             </div>
             <% } %>
             <% } %> 
     </div>
-    
     </div>
+
+    <div id="file_share_div"></div>
 
     <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
         <input name="taskName" type="none" id="title_task" placeholder="New Task">
@@ -182,12 +183,15 @@
 
         let create_task_form = document.getElementById('create_task_form')
         let taskdiv_id=document.getElementById('task_div_id')
+        let file_share_div=document.getElementById('file_share_div')
 
         window.onload = function () {
             add_mem.style.display = "none"
-            taskdiv_id.style.display = "flex"
             delete_window.style.display = "none"
             create_task_form.style.display="none"
+            
+            file_share_div.style.display="none"
+            taskdiv_id.style.display = "flex"
         }
 
         addmember.addEventListener("click", function () {
@@ -240,6 +244,7 @@
         task_management.addEventListener("click",
         function ()
         {
+            file_share_div.style.display="none"
             taskdiv_id.style.display = "flex"
         })
 
@@ -292,6 +297,14 @@
             create_task_form.style.display="none"
             back.style.background = "transparent"
             back.style.zIndex = 0
+        })
+
+        let file_share=document.getElementById('file_share')
+        file_share.addEventListener("click", 
+        function()
+        {
+            file_share_div.style.display="flex"
+            taskdiv_id.style.display = "none"
         })
 
     </script>

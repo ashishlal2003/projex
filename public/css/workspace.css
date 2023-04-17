@@ -671,15 +671,15 @@
     color: rgb(38, 118, 255);
     position: relative;
     top:-7%;
-    left:35%;
+    left:37%;
     text-align: center;
 }
 #dropdown_taskready
 {
     height: 25px;
-    width: 45%;
+    width: 52%;
     border:none;
-    background-color: rgb(255, 222, 254);
+    background-color: rgb(255, 226, 254);
     border-radius: 15px;
     font-size: 0.86rem;
     color: rgb(255, 71, 249);
@@ -688,7 +688,7 @@
     left:5%;
     text-align: center;
 }
-#dropdown_taskready:focus
+#dropdown_taskready:focus,#dropdown_inprogress:focus,#dropdown_needsreview:focus,#dropdown_done:focus
 {
     outline: none;
 }
@@ -698,8 +698,86 @@
     color:  rgb(255, 71, 249);
     border: none;
 }
-option:hover
+#dropdown_inprogress
 {
-    background-color: rgb(255, 71, 249);
-    color:  rgb(255, 222, 254);
+    height: 25px;
+    width: 52%;
+    border:none;
+    background-color: rgb(255, 238, 208);
+    border-radius: 15px;
+    font-size: 0.86rem;
+    color: rgb(255, 162, 0);
+    position: relative;
+    top:0%;
+    left:5%;
+    text-align: center;
+}
+#dropdown_inprogress option
+{
+    background-color: rgb(255, 229, 185);
+    color: rgb(255, 162, 0);
+    border: none;
+}
+#dropdown_needsreview
+{
+    height: 25px;
+    width: 52%;
+    border:none;
+    background-color: rgb(255, 219, 219);
+    border-radius: 15px;
+    font-size: 0.86rem;
+    color: rgb(255, 16, 16);
+    position: relative;
+    top:0%;
+    left:5%;
+    text-align: center;
+}
+#dropdown_needsreview option
+{
+    background-color: rgb(255, 190, 190);
+    color: rgb(255, 25, 25);
+    border: none;
+}
+#dropdown_done
+{
+    height: 25px;
+    width: 52%;
+    border:none;
+    background-color: rgb(227, 255, 227);
+    border-radius: 15px;
+    font-size: 0.86rem;
+    color:  rgb(0, 157, 0);
+    position: relative;
+    top:0%;
+    left:5%;
+    text-align: center;
+}
+#dropdown_done option
+{
+    background-color: rgb(227, 255, 227);
+    color: rgb(0, 157, 0);
+    border: none;
+}
+
+#save_status
+{
+    cursor: pointer;
+    height: 25px;
+    width:50px;
+    background-color: rgb(243, 243, 243);
+    color:rgb(143, 143, 143);
+    border: solid 1.6px rgb(213, 213, 213);
+    border-radius: 3px;
+    position: relative;
+    left:21%;
+}
+
+#file_share_div
+{
+    height: 100%;
+    width: 83%;
+    background-color: transparent;
+    position: absolute;
+    top:0;
+    left: 17%;
 }
