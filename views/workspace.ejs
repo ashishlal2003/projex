@@ -33,7 +33,7 @@
         <button id="drop_project_button">Drop Project</button>
     </div>
 
-    <div class="task_div">
+    <div id="task_div_id" class="task_div">
     <p class="roadmap">Roadmap</p>
     <button id="createtask">+ Create task </button>
 
@@ -64,6 +64,7 @@
         <p class="deadline">Deadline</p>
         <input name="taskDeadline" type="date" id="due_task">
         <button id="create_kar_task">Create Task</button>
+        <img src="https://drive.google.com/uc?export=view&id=1ljAvSBTtWC5vIt8zQjTu_vZVDAaZlbvs" alt="" id="close_task_form">
     </form>
 
     <div id="add_mem">
@@ -111,18 +112,18 @@
         let delete_window = document.getElementById('delete_window')
 
         let create_task_form = document.getElementById('create_task_form')
+        let taskdiv_id=document.getElementById('task_div_id')
 
         window.onload = function () {
             add_mem.style.display = "none"
-            // taskdiv_id.style.display = "none"
-            // collect.style.display = "none"
+            taskdiv_id.style.display = "flex"
             delete_window.style.display = "none"
             create_task_form.style.display="none"
         }
 
         addmember.addEventListener("click", function () {
             add_mem.style.display = "inline"
-            back.style.background = "rgba(66, 66, 139, 0.307)"
+            back.style.background = "rgba(20, 20, 20, 0.507)"
             back.style.zIndex = 1
         })
 
@@ -178,12 +179,16 @@
         drop.addEventListener("click",
         function () {
             delete_window.style.display = "flex"
+            back.style.background = "rgba(20, 20, 20, 0.507)"
+            back.style.zIndex = 1
         })
 
         let cancel = document.getElementById('cancel_delete')
         cancel.addEventListener("click",
         function () {
             delete_window.style.display = "none"
+            back.style.background = "transparent"
+            back.style.zIndex = 0
         })
 
         function confirmDelete() {
@@ -208,8 +213,16 @@
         function()
         {
             create_task_form.style.display="flex"
-            back.style.background = "rgba(66, 66, 139, 0.307)"
+            back.style.background = "rgba(20, 20, 20, 0.507)"
             back.style.zIndex = 1
+        })
+        let close_task_form=document.getElementById('close_task_form')
+        close_task_form.addEventListener("click", 
+        function()
+        {
+            create_task_form.style.display="none"
+            back.style.background = "transparent"
+            back.style.zIndex = 0
         })
 
     </script>
