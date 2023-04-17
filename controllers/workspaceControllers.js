@@ -7,6 +7,7 @@ const Task  = require('../models/taskMan');
 const getWorkspace = async (req,res) => {
     const user = req.session.user;
     const projectId = req.params.projectId;
+    const tasks = await Task.find({ createdBy: user._id });
   
     try {
       const project = await Project.findById(projectId);
@@ -14,7 +15,7 @@ const getWorkspace = async (req,res) => {
         return res.status(404).send('Project not found');
       }
       const task = await Task.find({ projectId: projectId})
-      res.render('workspace', { user, project, task });
+      res.render('workspace', { user, project, tasks });
 
     } catch (err) {
       console.error(err);
@@ -71,7 +72,7 @@ const deleteProject = async (req, res) => {
     const tasks = await Task.find({ createdBy: user._id });
     const project = await Project.findById(projectId);
     // console.log(project);
-
+    // console.log(tasks);
     res.render('workspace', { user, tasks, project });
 }; 
   
