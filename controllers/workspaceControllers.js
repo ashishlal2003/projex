@@ -9,6 +9,7 @@ const getWorkspace = async (req,res) => {
     const user = req.session.user;
     const projectId = req.params.projectId;
     // const tasks = await Task.find({ createdBy: user._id });
+    
   
     try {
       const project = await Project.findById(projectId);
@@ -57,6 +58,7 @@ const deleteProject = async (req, res) => {
  const createTask = async (req, res) => {
     const user = req.session.user;
     const projectId = req.params.projectId;
+    const taskId = req.params.taskId;
     const projectName = req.body.projectName;
     const taskName = req.body.taskName;
     const taskDeadline = req.body.taskDeadline;
@@ -75,14 +77,33 @@ const deleteProject = async (req, res) => {
     const project = await Project.findById(projectId);
     // console.log(project);
     // console.log(tasks);
-    // res.redirect('/workspace');
-    res.render('workspace', { user, tasks, project });
+    res.redirect(`/workspace/${projectId}`);
+    // res.render('workspace', { user, tasks, project });
 }; 
+
+const updateTask = async (req, res) => {
+    const user = req.session.user;
+    const projectId = req.params.projectId;
+    const project = await Project.findById(projectId);
+    const taskId = req.params.taskId;
+  const status = req.body.status;
+  const tasks = await Task.findById(taskId);
+  try {
+    
+    tasks.status = status;
+    await tasks.save();
+    res.redirect(`/workspace/${projectId}/${taskId}}`);
+  } catch (err) {
+    console.error(err);
+    res.render('workspace', { user, tasks, project });
+  }
+};
 
   
 
 module.exports = {
     getWorkspace,
     deleteProject,
-    createTask
+    createTask,
+    updateTask
 };

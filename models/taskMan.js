@@ -9,7 +9,7 @@ const taskSchema = new Schema({
   
   status: {
     type: String,
-    default: "Task Ready"
+    default: "taskready_opt"
   },
 
   createdAt: {

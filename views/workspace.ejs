@@ -42,29 +42,88 @@
     <p class="needsreview">Needs Review</p>
     <p class="done">Done</p>
 
-    <div class="cont_taskready"></div>
-    <div class="cont_inprogress">
+    <div class="cont_taskready">
+
         <% for (let i = 0; i < tasks.length; i++) { %>     
-            <!-- <p class="task_name">
-                
-                <%= tasks[i].name %>
-            </p> -->
+            <% if(tasks[i].status == "taskready_opt"){ %>
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
                 <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
                 <p class="created_by_in">Created by</p>
                 <div id="creator_in"><%= user.name %></div>
-                <select id="dropdown_taskready">
-                    <option value="inprogress_opt">In Progress</option>
-                    <option value="needsreview_opt">Needs Review</option>
-                    <option value="done_opt">Done</option>
-                </select>
+                <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
+                    <select name="status" id="dropdown_taskready">
+                        <option value="taskready_opt">Task Ready</option>
+                        <option value="inprogress_opt">In Progress</option>
+                        <option value="needsreview_opt">Needs Review</option>
+                        <option value="done_opt">Done</option>
+                    </select>
+                    <button type="submit">Update Status</button>
+                </form>
             </div>
+            <% } %>
             <% } %> 
     </div>
-    <div class="cont_needsreview"></div>
-    <div class="cont_done"></div>
-
+    <div class="cont_inprogress">
+        <% for (let i = 0; i < tasks.length; i++) { %>     
+            <% if(tasks[i].status == "inprogress_opt"){ %>
+            <div class="task_ejs_div">
+                <p class="title_task_in"><%= tasks[i].name %></p>
+                <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                <p class="created_by_in">Created by</p>
+                <div id="creator_in"><%= user.name %></div>
+                <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
+                    <select name="status" id="dropdown_taskready">
+                        <option value="inprogress_opt">In Progress</option>
+                        <option value="needsreview_opt">Needs Review</option>
+                        <option value="done_opt">Done</option>
+                    </select>
+                    <button type="submit">Update Status</button>
+                </form>
+            </div>
+            <% } %>
+            <% } %> 
+    </div>
+    <div class="cont_needsreview">
+        <% for (let i = 0; i < tasks.length; i++) { %>     
+            <% if(tasks[i].status == "needsreview_opt"){ %>
+            <div class="task_ejs_div">
+                <p class="title_task_in"><%= tasks[i].name %></p>
+                <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                <p class="created_by_in">Created by</p>
+                <div id="creator_in"><%= user.name %></div>
+                <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
+                    <select name="status" id="dropdown_taskready">
+                        <option value="needsreview_opt">Needs Review</option>
+                        <option value="inprogress_opt">In Progress</option>
+                        <option value="done_opt">Done</option>
+                    </select>
+                    <button type="submit">Update Status</button>
+                </form>
+            </div>
+            <% } %>
+            <% } %> 
+    </div>
+    <div class="cont_done">
+        <% for (let i = 0; i < tasks.length; i++) { %>     
+            <% if(tasks[i].status == "done_opt"){ %>
+            <div class="task_ejs_div">
+                <p class="title_task_in"><%= tasks[i].name %></p>
+                <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
+                <p class="created_by_in">Created by</p>
+                <div id="creator_in"><%= user.name %></div>
+                <form action="/workspace/update-task/<%= project._id %>/<%= tasks[i]._id %>" method="post">
+                    <select name="status" id="dropdown_taskready">
+                        <option value="done_opt">Done</option>
+                        <option value="needsreview_opt">Needs Review</option>
+                    </select>
+                    <button type="submit">Update Status</button>
+                </form>
+            </div>
+            <% } %>
+            <% } %> 
+    </div>
+    
     </div>
 
     <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
