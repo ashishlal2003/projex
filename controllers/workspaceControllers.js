@@ -7,14 +7,14 @@ const Task  = require('../models/taskMan');
 const getWorkspace = async (req,res) => {
     const user = req.session.user;
     const projectId = req.params.projectId;
-    const tasks = await Task.find({ createdBy: user._id });
+    // const tasks = await Task.find({ createdBy: user._id });
   
     try {
       const project = await Project.findById(projectId);
       if (!project) {
         return res.status(404).send('Project not found');
       }
-      const task = await Task.find({ projectId: projectId})
+      const tasks = await Task.find({ projectId: projectId})
       res.render('workspace', { user, project, tasks });
 
     } catch (err) {
