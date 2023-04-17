@@ -60,24 +60,24 @@
           
       
 
-    <form action="" id="edit_user">
+    <form method="post" action="/edit-profile" id="edit_user">
 
-        <input type="text" id="name" placeholder="Enter Your Name">
+        <input name="name" type="text" id="name" placeholder="Enter Your Name">
 
-        <label for="organization" class="butlabel" id="organizationlabel"><Institute/Organization></label>
-        <input type="text" class="but" id="organization" placeholder="ex. Dragon Realstates">
+        <label for="organization" class="butlabel" id="organizationlabel">Institute/Organization</label>
+        <input name="organisation" type="text" class="but" id="organization" placeholder="ex. Dragon Realstates">
 
         <label for="adress" class="butlabel" id="adresslabel">Address</label>
-        <input type="text" class="but" id="adress" placeholder="ex. Dragon Realstates Park street, Block-A">
+        <input name="address" type="text" class="but" id="adress" placeholder="ex. Dragon Realstates Park street, Block-A">
 
         <label for="city" class="butlabel" id="citylabel">City</label>
-        <input type="text" class="but" id="city" placeholder="ex. Seattle">
+        <input name="city" type="text" class="but" id="city" placeholder="ex. Seattle">
 
         <label for="state" class="butlabel" id="statelabel">State</label>
-        <input type="text" class="but" id="state" placeholder="ex. Washington">
+        <input name="state" type="text" class="but" id="state" placeholder="ex. Washington">
 
         <label for="country" class="butlabel" id="countrylabel">Country</label>
-        <input type="text" class="but" id="country" placeholder="ex. United States">
+        <input name="country" type="text" class="but" id="country" placeholder="ex. United States">
         
         <button id="save">Save</button>
         
