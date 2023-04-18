@@ -8,6 +8,7 @@
 </head>
 <link rel="stylesheet" href="/css/Pre-workspace.css">
 <body>
+    <div id = "loader"><div class = "spinner"></div></div>
     <div class="left">
         <div class="userdiv">
             <img id="user" src="https://drive.google.com/uc?id=1HtUgVdz9uDcLpuyQZgz5Sb_s95AFNP65" alt="">
@@ -26,9 +27,9 @@
         <button id="logout">Log Out</button>
     </form>
     </div>
-    <div class="dialogue" id="diag">
+    <!-- <div class="dialogue" id="diag">
         <p class="bookmark_diag">You can view your bookmarked projects</p>
-    </div>
+    </div> -->
     <div id="creatediv">
         <p id="createhead1">Create your projects here</p>
 
@@ -46,7 +47,7 @@
                   <% }); %>
 
                 <% } else { %>
-                  <p>No projects found</p>
+                  <div id="no_project">No projects found...</div>
                 <% } %>
         </div>
         <form method="post" action="/create-project">
@@ -62,7 +63,7 @@
 
     <form method="post" action="/edit-profile" id="edit_user">
 
-        <input name="name" type="text" id="name" placeholder="Enter Your Name">
+        <input name="name" type="text" id="name" placeholder="Edit Your Name">
 
         <label for="organization" class="butlabel" id="organizationlabel">Institute/Organisation</label>
         <input name="organisation" type="text" class="but" id="organization" placeholder="ex. Dragon Realstates">
@@ -124,12 +125,17 @@
 
         window.onload=function()
         {
+            document.getElementById("loader").style.display = "none"
             diag.style.display="none"
             edituser.style.display="none"
             viewuser.style.display="none"
             creatediv.style.display="flex"
         }
 
+        window.onunload=function(){
+            document.getElementById("loader").style.display = "block"
+        }
+        
         bookmarks.addEventListener("mouseover",
         function()
         {

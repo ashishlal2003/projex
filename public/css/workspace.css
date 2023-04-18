@@ -785,7 +785,7 @@
 {
     z-index: 2;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    height:45%;
+    height:35%;
     width:35%;
     border-radius: 15px;
     background-color: white;
@@ -809,7 +809,7 @@
     font-weight: 600;
     color: rgb(81, 81, 81);
     position: absolute;
-    top:10%;
+    top:35px;
     left:5%;
 }
 .count_value_mem
@@ -818,7 +818,7 @@
     font-weight: 600;
     color: rgb(33, 33, 33);
     position: absolute;
-    top:10%;
+    top:35px;
     left:42%;
 }
 .tasks_completed_p
@@ -827,10 +827,19 @@
     font-weight: 600;
     color: rgb(110, 110, 110);
     position: absolute;
-    top:22.5%;
+    top:85px;
     left:5%;
 }
-.full_bar
+.count_value_completed
+{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(96, 96, 96);
+    position: absolute;
+    top:85px;
+    left:53%;
+}
+/* .full_bar
 {
     height: 30px;
     width:50%;
@@ -838,42 +847,79 @@
     border:solid 2px rgb(0, 132, 0);
     border-radius: 15px;
     position: absolute;
-    top:22.5%;
+    top:85px;
     left:42%;
 }
-.partial_bar
+#partial_bar
 {
     height: 34px;
-    width:70%;
     background-color: rgb(0, 132, 0);
     border-radius: 15px;
     position: relative;
     top:-2px;
     left: -2px;
-}
+} */
 .inprogress_project_analysis
 {
     font-size: 1.1rem;
     font-weight: 600;
     color: rgb(116, 116, 116);
     position: absolute;
-    top:37.5%;
+    top:150px;
     left:5%;
 }
-/* .count_value_inprogress
+.count_value_inprogress
 {
-
-} */
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(33, 33, 33);
+    position: absolute;
+    top:150px;
+    left:65%;
+}
 .review_project_analysis
 {
     font-size: 1.1rem;
     font-weight: 600;
     color: rgb(116, 116, 116);
     position: absolute;
-    top:52.5%;
+    top:190px;
     left:5%;
 }
-/* .count_value_review
+.count_value_review
 {
-    
-} */
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(33, 33, 33);
+    position: absolute;
+    top:190px;
+    left:65%;
+}
+#loader {
+    position: fixed;
+    z-index: 9999;
+    background-color: #fff;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  .spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    animation: spin 1s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -15px;
+    margin-top: -15px;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

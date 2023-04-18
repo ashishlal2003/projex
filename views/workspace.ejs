@@ -12,6 +12,7 @@
 </style>
 
 <body>
+    <div id = "loader"><div class = "spinner"></div></div>
     <div id="back"></div>
     <div id="left" class="left">
         <p id="project_name">
@@ -29,7 +30,7 @@
                 alt="Communication">Communication</button>
         <button class="features" id="project_analysis"><img class="logo_but"
                 src="https://drive.google.com/uc?export=view&id=129D5AI1a6mZ9aiMaw7d-1DnlUhzaaQl0"
-                alt="Project Analysis">Project Analysis</button>
+                alt="Project Analysis">Task Analysis</button>
         <button id="drop_project_button">Drop Project</button>
     </div>
 
@@ -43,9 +44,10 @@
     <p class="done">Done</p>
 
     <div class="cont_taskready">
-
+        <% r=0 %>
         <% for (let i = 0; i < tasks.length; i++) { %>     
             <% if(tasks[i].status == "taskready_opt"){ %>
+                <% r++ %>
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
                 <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
@@ -65,8 +67,10 @@
             <% } %> 
     </div>
     <div class="cont_inprogress">
+        <% p=0 %>
         <% for (let i = 0; i < tasks.length; i++) { %>     
             <% if(tasks[i].status == "inprogress_opt"){ %>
+                <% n++ %>
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
                 <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
@@ -85,8 +89,10 @@
             <% } %> 
     </div>
     <div class="cont_needsreview">
+        <% n=0 %>
         <% for (let i = 0; i < tasks.length; i++) { %>     
             <% if(tasks[i].status == "needsreview_opt"){ %>
+                <% n++ %>
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
                 <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
@@ -105,8 +111,10 @@
             <% } %> 
     </div>
     <div class="cont_done">
+        <% d=0 %>
         <% for (let i = 0; i < tasks.length; i++) { %>     
             <% if(tasks[i].status == "done_opt"){ %>
+                <% d++ %>
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
                 <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
@@ -129,15 +137,13 @@
     <div id="project_analysis_div">
         <img src="https://drive.google.com/uc?export=view&id=1ljAvSBTtWC5vIt8zQjTu_vZVDAaZlbvs" alt="" id="close_project_analysis">
         <p class="mem_count_project">Members in Projex : </p>
-        <p class="count_value_mem">4</p>
-        <p class="tasks_completed_p">Tasks Completed</p>
-        <div class="full_bar">
-            <div class="partial_bar"></div>
-        </div>
+        <p class="count_value_mem">1</p>
+        <p class="tasks_completed_p">Total Completed Tasks</p>
+        <p class="count_value_completed"><%= d %></p>
         <p class="inprogress_project_analysis">Total tasks that are In Progress : </p>
-        <p class="count_value_inprogress">3</p>
+        <p class="count_value_inprogress"><%= p %></p>
         <p class="review_project_analysis">Total tasks that need to be reviewed : </p>
-        <p class="count_value_review">3</p>
+        <p class="count_value_review"><%= n %></p>
     </div> 
 
     <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
@@ -200,6 +206,7 @@
         let project_analysis_div=document.getElementById('project_analysis_div')
 
         window.onload = function () {
+            document.getElementById("loader").style.display = "none"
             add_mem.style.display = "none"
             delete_window.style.display = "none"
             create_task_form.style.display="none"
@@ -209,6 +216,9 @@
             project_analysis_div.style.display="none"
         }
 
+        window.onunload=function(){
+            document.getElementById("loader").style.display = "block"
+        }
         addmember.addEventListener("click", function () {
             add_mem.style.display = "inline"
             back.style.background = "rgba(20, 20, 20, 0.507)"
