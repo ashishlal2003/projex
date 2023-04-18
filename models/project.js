@@ -24,7 +24,11 @@ const projectSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user',
         required: true
-    }
+    },
+    tasks: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Task'
+      }]
 });
 
 projectSchema.methods.delete = async function(){

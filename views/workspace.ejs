@@ -127,6 +127,19 @@
     </div>
 
     <div id="file_share_div"></div>
+    <div id="project_analysis_div">
+        <img src="https://drive.google.com/uc?export=view&id=1ljAvSBTtWC5vIt8zQjTu_vZVDAaZlbvs" alt="" id="close_project_analysis">
+        <p class="mem_count_project">Members in <%= project.name %> : 1</p>
+        <!-- <p class="count_value_mem">4</p> -->
+        <p class="tasks_completed_p">Tasks Completed : <%= countDone %></p>
+        <div class="full_bar">
+            <div class="partial_bar"></div>
+        </div>
+        <p class="inprogress_project_analysis">Total tasks that are In Progress : </p>
+        <p class="count_value_inprogress">3</p>
+        <p class="review_project_analysis">Total tasks that need to be reviewed : </p>
+        <p class="count_value_review">3</p>
+    </div> 
 
     <form id="create_task_form" method="post" action="/workspace/<%= project._id %>/create-task">
         <input name="taskName" type="none" id="title_task" placeholder="New Task">
@@ -185,6 +198,7 @@
         let create_task_form = document.getElementById('create_task_form')
         let taskdiv_id=document.getElementById('task_div_id')
         let file_share_div=document.getElementById('file_share_div')
+        let project_analysis_div=document.getElementById('project_analysis_div')
 
         window.onload = function () {
             add_mem.style.display = "none"
@@ -193,6 +207,7 @@
             
             file_share_div.style.display="none"
             taskdiv_id.style.display = "flex"
+            project_analysis_div.style.display="none"
         }
 
         addmember.addEventListener("click", function () {
@@ -247,6 +262,7 @@
         {
             file_share_div.style.display="none"
             taskdiv_id.style.display = "flex"
+            project_analysis_div.style.display="none"
         })
 
 
@@ -284,10 +300,12 @@
             }
         }
         let createtask=document.getElementById('createtask')
+        let title_task=document.getElementById('title_task')
         createtask.addEventListener("click", 
         function()
         {
             create_task_form.style.display="flex"
+            title_task.focus()
             back.style.background = "rgba(20, 20, 20, 0.507)"
             back.style.zIndex = 1
         })
@@ -306,6 +324,29 @@
         {
             file_share_div.style.display="flex"
             taskdiv_id.style.display = "none"
+            project_analysis_div.style.display="none"
+        })
+
+        let project_analysis=document.getElementById('project_analysis')
+        project_analysis.addEventListener("click",
+        function()
+        {
+            file_share_div.style.display="flex"
+            taskdiv_id.style.display = "none"
+            project_analysis_div.style.display="flex"
+            back.style.background = "rgba(20, 20, 20, 0.507)"
+            back.style.zIndex = 1
+        })
+
+        let close_project_analysis=document.getElementById('close_project_analysis')
+        close_project_analysis.addEventListener("click",
+        function()
+        {
+            file_share_div.style.display="flex"
+            taskdiv_id.style.display = "none"
+            project_analysis_div.style.display="none"
+            back.style.background = "transparent"
+            back.style.zIndex = 0
         })
 
     </script>

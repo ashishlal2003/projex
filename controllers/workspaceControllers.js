@@ -16,8 +16,17 @@ const getWorkspace = async (req,res) => {
       if (!project) {
         return res.status(404).send('Project not found');
       }
+      const countDone = 0;
+      for(let i = 0; i < project.tasks.length; i++){
+        if(project.tasks[i].status == "done_opt"){
+          console.log(project.tasks[i].name);
+          countDone++;
+        }
+      }
+      console.log(countDone+5 );
+      // console.log(project.tasks.length);
       const tasks = await Task.find({ projectId: projectId})
-      res.render('workspace', { user, project, tasks });
+      res.render('workspace', { user, project, tasks, countDone });
 
     } catch (err) {
       console.error(err);
@@ -75,6 +84,16 @@ const deleteProject = async (req, res) => {
 
     const tasks = await Task.find({ projectId: projectId})
     const project = await Project.findById(projectId);
+    project.tasks.push(task._id);
+    await project.save();
+    const countDone = 0;
+      for(let i = 0; i < project.tasks.length; i++){
+        if(project.tasks[i].status == "done_opt"){
+          console.log(project.tasks[i].name);
+          countDone++;
+        }
+      }
+      console.log(countDone+5 );
     // console.log(project);
     // console.log(tasks);
     res.redirect(`/workspace/${projectId}`);
@@ -92,6 +111,14 @@ const updateTask = async (req, res) => {
     
     tasks.status = status;
     await tasks.save();
+    const countDone = 0;
+      for(let i = 0; i < project.tasks.length; i++){
+        if(project.tasks[i].status == "done_opt"){
+          console.log(project.tasks[i].name);
+          countDone++;
+        }
+      }
+      console.log(countDone+5 );
     res.redirect(`/workspace/${projectId}/${taskId}}`);
   } catch (err) {
     console.error(err);
