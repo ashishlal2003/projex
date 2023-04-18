@@ -553,7 +553,7 @@
     height: 40px;
     width: 80%;
     font-size: 2rem;
-    color: rgb(119, 119, 119);
+    color: rgb(107, 107, 107);
     font-weight: 700;
     position: absolute;
     top:6%;
@@ -565,11 +565,11 @@
 {
     outline: none;
 }
-#task_title::placeholder
+#title_task::placeholder
 {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: 700;
-    color:rgb(148, 148, 148);
+    color:rgb(171, 171, 171);
 }
 .created_by
 {
@@ -630,10 +630,10 @@
 {
     cursor: pointer;
     height: 12px;
-    opacity: 0.5;
+    opacity: 0.65;
     position: absolute;
     top:5%;
-    right:5%;
+    right:3%;
 }
 .title_task_in
 {
@@ -781,3 +781,99 @@
     top:0;
     left: 17%;
 }
+#project_analysis_div
+{
+    z-index: 2;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height:45%;
+    width:35%;
+    border-radius: 15px;
+    background-color: white;
+    border:none;
+    position: absolute;
+    top: 20%;
+    left: 32.5%;
+}
+#close_project_analysis
+{
+    cursor: pointer;
+    height: 12px;
+    opacity: 0.6;
+    position: absolute;
+    top:4%;
+    right:3%;
+}
+.mem_count_project
+{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(81, 81, 81);
+    position: absolute;
+    top:10%;
+    left:5%;
+}
+.count_value_mem
+{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: rgb(33, 33, 33);
+    position: absolute;
+    top:10%;
+    left:42%;
+}
+.tasks_completed_p
+{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: rgb(110, 110, 110);
+    position: absolute;
+    top:22.5%;
+    left:5%;
+}
+.full_bar
+{
+    height: 30px;
+    width:50%;
+    background-color: rgb(209, 255, 209);
+    border:solid 2px rgb(0, 132, 0);
+    border-radius: 15px;
+    position: absolute;
+    top:22.5%;
+    left:42%;
+}
+.partial_bar
+{
+    height: 34px;
+    width:70%;
+    background-color: rgb(0, 132, 0);
+    border-radius: 15px;
+    position: relative;
+    top:-2px;
+    left: -2px;
+}
+.inprogress_project_analysis
+{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(116, 116, 116);
+    position: absolute;
+    top:37.5%;
+    left:5%;
+}
+/* .count_value_inprogress
+{
+
+} */
+.review_project_analysis
+{
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(116, 116, 116);
+    position: absolute;
+    top:52.5%;
+    left:5%;
+}
+/* .count_value_review
+{
+    
+} */
