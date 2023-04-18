@@ -235,3 +235,23 @@ font-size: 0.8rem;
     bottom:31.8%;
     left:16.2%;
 }
+#em2
+{
+	position: absolute;
+	top:15%;
+}
+#pass2
+{
+	position: absolute;
+	top:30%;
+}
+#logsub
+{
+	position: absolute;
+	top:52%;
+}
+#reset_pass
+{
+	position: absolute;
+	top:41%;
+}
