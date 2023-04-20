@@ -71,7 +71,7 @@
         <% p=0 %>
         <% for (let i = 0; i < tasks.length; i++) { %>     
             <% if(tasks[i].status == "inprogress_opt"){ %>
-                <% n++ %>
+                <% p++ %>
             <div class="task_ejs_div">
                 <p class="title_task_in"><%= tasks[i].name %></p>
                 <p class="deadline_in"><%= tasks[i].deadline.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) %></p>
@@ -90,7 +90,7 @@
             <% } %> 
     </div>
     <div class="cont_needsreview">
-        <% n=0 %>
+        <%  n=0 %>
         <% for (let i = 0; i < tasks.length; i++) { %>     
             <% if(tasks[i].status == "needsreview_opt"){ %>
                 <% n++ %>
