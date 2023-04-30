@@ -49,6 +49,10 @@ These instructions will get you a copy of the project up and running on your loc
 
 We welcome contributions to ProjEx. To contribute, please fork the repository, make your changes and submit a pull request.
 
+## Project PPT
+
+Can be accessed in the ```PROJEX_PPT.pdf``` file.
+
 ## Authors
 
  - Ashish Lal
