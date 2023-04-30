@@ -53,6 +53,10 @@ We welcome contributions to ProjEx. To contribute, please fork the repository, m
 
 Can be accessed in the ```PROJEX_PPT.pdf``` file.
 
+## Project Report
+
+Can be accessed in the ```Projex_report.pdf``` file.
+
 ## Authors
 
  - Ashish Lal
